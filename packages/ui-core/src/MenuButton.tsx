@@ -15,6 +15,8 @@ type MenuButtonProps = {
   block?: boolean;
   /** Alignement du panneau sous le trigger. `stretch` = même largeur. */
   align?: MenuButtonAlign;
+  /** Chevron indicateur d'ouverture après `label`. Désactiver pour un trigger icône seule (ex. avatar, burger). */
+  showChevron?: boolean;
   className?: string;
   menuClassName?: string;
 };
@@ -38,6 +40,7 @@ const MenuButton = ({
   size = "md",
   block = false,
   align = block ? "stretch" : "start",
+  showChevron = true,
   className,
   menuClassName,
 }: MenuButtonProps) => {
@@ -90,10 +93,12 @@ const MenuButton = ({
         className={buttonClassName({ variant, size, block })}
       >
         {label}
-        <ChevronDownIcon
-          aria-hidden
-          className={classNames("size-4 transition-transform", open && "rotate-180")}
-        />
+        {showChevron ? (
+          <ChevronDownIcon
+            aria-hidden
+            className={classNames("size-4 transition-transform", open && "rotate-180")}
+          />
+        ) : null}
       </button>
       {open ? (
         <div

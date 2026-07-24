@@ -74,6 +74,8 @@ export { Toast } from "./Toast";
 export type { ToastProps, ToastVariant, ToastPosition } from "./Toast";
 export { Toggle } from "./Toggle";
 export type { ToggleProps } from "./Toggle";
+export { ThemeToggle } from "./ThemeToggle";
+export type { ThemeToggleProps } from "./ThemeToggle";
 export { Progress } from "./Progress";
 export type { ProgressProps } from "./Progress";
 export { Radio } from "./Radio";

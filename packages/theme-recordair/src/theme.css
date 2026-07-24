@@ -58,6 +58,15 @@
   --color-surface-elevated: var(--recordair-color-surface-elevated, #ffffff);
   --color-surface-inverted: var(--recordair-color-surface-inverted, #0f0f1a);
   --color-surface-inverted-accent: var(--recordair-color-surface-inverted-accent, #1a1733);
+
+  --color-fg-primary: var(--recordair-color-fg-primary, #18181b);
+  --color-fg-secondary: var(--recordair-color-fg-secondary, #52525b);
+  --color-fg-tertiary: var(--recordair-color-fg-tertiary, #71717a);
+  --color-line: var(--recordair-color-line, #e4e4e7);
+  --color-line-subtle: var(--recordair-color-line-subtle, #f4f4f5);
+  --color-selected-tint: var(--recordair-color-selected-tint, rgb(79 70 229 / 8%));
+  --color-selected-fg: var(--recordair-color-selected-fg, #4f46e5);
+
   --color-hero-from: var(--recordair-color-hero-from, #edf2ff);
   --color-hero-to: var(--recordair-color-hero-to, #fcf2ff);
   --color-auth-gradient-from: var(--recordair-color-auth-gradient-from, #d945f0);
@@ -86,6 +95,7 @@
   --radius-full: 9999px;
 
   --size-sidebar: 260px;
+  --size-sidebar-collapsed: 72px;
   --size-form-label: 280px;
   --size-avatar-sm: 28px;
   --size-avatar-md: 40px;
@@ -133,6 +143,7 @@
   --shadow-brand: 0 8px 24px 0 rgb(99 102 242 / 40%);
   --shadow-card: 0 12px 32px rgb(15 18 51 / 4%);
   --shadow-focus: 0 0 0 3px rgb(79 70 229 / 28%);
+  --shadow-menu: var(--recordair-shadow-menu, 0 16px 48px 0 rgb(99 102 242 / 8%));
 
   --background-image-auth: linear-gradient(128.66deg, var(--color-auth-gradient-from) 0%, var(--color-auth-gradient-mid) 36%, var(--color-auth-gradient-to) 72%);
   --background-image-auth-halo: radial-gradient(closest-side, rgb(255 255 255 / 25%), transparent 70%);
@@ -157,7 +168,38 @@
 
   body {
     background: var(--color-surface-page);
-    color: var(--color-neutral-900);
+    color: var(--color-fg-primary);
     font-family: var(--font-sans);
+  }
+
+  [data-theme="dark"] {
+    color-scheme: dark;
+
+    --recordair-color-surface-page: #18181b;
+    --recordair-color-surface-elevated: #27272a;
+    --recordair-color-surface-inverted: #ffffff;
+
+    --recordair-color-fg-primary: #fafafa;
+    --recordair-color-fg-secondary: #d4d4d8;
+    --recordair-color-fg-tertiary: #71717a;
+    --recordair-color-line: #3f3f46;
+    --recordair-color-line-subtle: #27272a;
+    --recordair-color-selected-tint: rgb(129 140 248 / 18%);
+    --recordair-color-selected-fg: #a5b4fc;
+
+    --recordair-color-success: #34d399;
+    --recordair-color-success-bg: rgb(16 185 129 / 16%);
+    --recordair-color-success-text: #6ee7b7;
+    --recordair-color-error: #f87171;
+    --recordair-color-error-bg: rgb(239 68 68 / 16%);
+    --recordair-color-error-text: #fca5a5;
+    --recordair-color-warning: #fbbf24;
+    --recordair-color-warning-bg: rgb(245 158 11 / 16%);
+    --recordair-color-warning-text: #fcd34d;
+    --recordair-color-info: #60a5fa;
+    --recordair-color-info-bg: rgb(59 130 246 / 16%);
+    --recordair-color-info-text: #93c5fd;
+
+    --recordair-shadow-menu: 0 16px 48px 0 rgb(0 0 0 / 40%);
   }
 }

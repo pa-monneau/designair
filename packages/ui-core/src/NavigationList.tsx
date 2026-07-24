@@ -1,7 +1,7 @@
 import type { ElementType, ReactNode } from "react";
 import { classNames } from "./classNames";
 
-type NavigationListTone = "brand" | "inverted";
+type NavigationListTone = "brand" | "inverted" | "neutral";
 
 type NavigationListItem = {
   href: string;
@@ -21,17 +21,21 @@ type NavigationListProps = {
    * localisé d'un routeur applicatif). Même convention que `RecordairLogo`.
    */
   as?: ElementType;
+  /** Rail icône seule (label masqué, tooltip natif via `title`) au lieu de icône + label. */
+  collapsed?: boolean;
   className?: string;
 };
 
 const activeClasses: Record<NavigationListTone, string> = {
   brand: "bg-role-studio-bg text-role-studio-text",
   inverted: "bg-surface-inverted text-neutral-0",
+  neutral: "bg-selected-tint text-selected-fg",
 };
 
 const inactiveClasses: Record<NavigationListTone, string> = {
   brand: "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900",
   inverted: "text-neutral-300 hover:bg-neutral-0/10 hover:text-neutral-0",
+  neutral: "text-fg-secondary hover:bg-line-subtle hover:text-fg-primary",
 };
 
 const NavigationList = ({
@@ -40,6 +44,7 @@ const NavigationList = ({
   label,
   tone = "brand",
   as: LinkComponent = "a",
+  collapsed = false,
   className,
 }: NavigationListProps) => (
   <nav aria-label={label} className={classNames("flex flex-col gap-1", className)}>
@@ -58,16 +63,18 @@ const NavigationList = ({
           key={item.href}
           href={item.href}
           aria-current={active ? "page" : undefined}
+          title={collapsed && typeof item.label === "string" ? item.label : undefined}
           className={classNames(
-            "flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:shadow-focus",
+            "flex items-center gap-3 rounded-lg py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:shadow-focus",
+            collapsed ? "justify-center px-3" : "px-4",
             active
               ? activeClasses[tone]
               : inactiveClasses[tone],
           )}
         >
           {item.leadingIcon ? <span aria-hidden className="shrink-0">{item.leadingIcon}</span> : null}
-          <span className="flex-1">{item.label}</span>
-          {item.badge ? (
+          {collapsed ? null : <span className="flex-1">{item.label}</span>}
+          {!collapsed && item.badge ? (
             <span className="grid min-w-[var(--size-nav-badge-min)] place-items-center rounded-full bg-error px-2 py-0.5 text-overline font-bold text-neutral-0">
               {item.badge}
             </span>
