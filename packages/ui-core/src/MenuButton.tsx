@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { ChevronDownIcon } from "./icons";
 import { classNames } from "./classNames";
-import { buttonClassName, type ButtonSize, type ButtonVariant } from "./buttonStyles";
+import { buttonClassName, type ButtonShape, type ButtonSize, type ButtonVariant } from "./buttonStyles";
 
 type MenuButtonAlign = "start" | "end" | "stretch";
 
@@ -12,11 +12,14 @@ type MenuButtonProps = {
   children: ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  shape?: ButtonShape;
   block?: boolean;
   /** Alignement du panneau sous le trigger. `stretch` = même largeur. */
   align?: MenuButtonAlign;
   /** Chevron indicateur d'ouverture après `label`. Désactiver pour un trigger icône seule (ex. avatar, burger). */
   showChevron?: boolean;
+  /** Trigger carré sans padding horizontal (ex. avatar seul), comme `IconButton`. */
+  iconOnly?: boolean;
   className?: string;
   menuClassName?: string;
 };
@@ -38,9 +41,11 @@ const MenuButton = ({
   children,
   variant = "secondary",
   size = "md",
+  shape = "default",
   block = false,
   align = block ? "stretch" : "start",
   showChevron = true,
+  iconOnly = false,
   className,
   menuClassName,
 }: MenuButtonProps) => {
@@ -90,7 +95,7 @@ const MenuButton = ({
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((current) => !current)}
-        className={buttonClassName({ variant, size, block })}
+        className={buttonClassName({ variant, size, shape, block, iconOnly })}
       >
         {label}
         {showChevron ? (
