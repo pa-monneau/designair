@@ -111,7 +111,7 @@ const MenuButton = ({
           role="menu"
           onClick={handleMenuClick}
           className={classNames(
-            "absolute top-full z-50 mt-2 flex flex-col gap-0.5 rounded-xl border border-neutral-200 bg-neutral-0 p-2 shadow-elevated",
+            "absolute top-full z-50 mt-2 flex flex-col gap-0.5 rounded-xl border border-line bg-surface-elevated p-2 text-fg-primary shadow-menu",
             alignClasses[align],
             menuClassName,
           )}
