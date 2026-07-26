@@ -23,7 +23,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 2
+          # Le push peut contenir plusieurs commits : le SHA `before` doit toujours
+          # être disponible pour déterminer exactement les packages modifiés.
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v6

@@ -3,6 +3,10 @@
   "version": "0.1.13",
   "author": "Pierre-Alexandre Monneau",
   "description": "Tokens Tailwind CSS v4 du thème Record'air.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pa-monneau/recordair-ui"
+  },
   "sideEffects": [
     "**/*.css"
   ],

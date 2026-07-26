@@ -3,6 +3,10 @@
   "version": "0.3.22",
   "author": "Pierre-Alexandre Monneau",
   "description": "Primitives React accessibles et thémables extraites de Record'air.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pa-monneau/recordair-ui"
+  },
   "type": "module",
   "files": [
     "dist"
