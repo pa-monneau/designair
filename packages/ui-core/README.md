@@ -60,6 +60,8 @@ Les icônes doivent être importées depuis `@recordair/ui-core/icons`. N'import
 
 Les composants émettent uniquement des événements React et n'importent ni route, ni service, ni traduction applicative. Ajoutez `"use client"` dans le composant consommateur lorsqu'il conserve un état ou fournit des callbacks.
 
+Les contrôles de formulaire (`Input`, `Select`, `Checkbox`, `Toggle`, `Radio` et `Textarea`) utilisent les tokens sémantiques du thème et s'adaptent automatiquement au mode sombre.
+
 ## Dépannage
 
 Si les composants sont rendus mais restent sans style, vérifiez la directive `@source`, supprimez `.next`, puis redémarrez le serveur de développement.
