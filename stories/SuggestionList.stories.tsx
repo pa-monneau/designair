@@ -11,7 +11,7 @@ import { HouseIcon, MapPinIcon } from "@recordair/ui-core/icons";
  * max) : toute la ligne est cliquable et se surligne au survol.
  */
 const meta = {
-  title: "Core/SuggestionList",
+  title: "Core/Forms/Suggestion list",
   component: SuggestionList,
   tags: ["autodocs"],
   argTypes: {

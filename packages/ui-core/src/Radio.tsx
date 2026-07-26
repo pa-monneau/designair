@@ -28,5 +28,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   );
 });
 
+Radio.displayName = "Radio";
+
 export { Radio };
 export type { RadioProps };

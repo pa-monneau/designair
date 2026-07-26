@@ -8,7 +8,7 @@ import { PriceTag } from "@recordair/ui-core";
  * restent à la charge de l'appelant.
  */
 const meta = {
-  title: "Core/PriceTag",
+  title: "Core/Data display/Price tag",
   component: PriceTag,
   tags: ["autodocs"],
   argTypes: {

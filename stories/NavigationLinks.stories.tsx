@@ -27,20 +27,6 @@ const studioOptions = [
   { id: "vieux-lille", label: "Le Vieux-Lille" },
 ] as const;
 
-const NavigationCatalog = () => {
-  const [selectedStudio, setSelectedStudio] = useState("all");
-
-  return (
-    <div className="grid w-full max-w-5xl gap-10 lg:grid-cols-[var(--size-sidebar)_1fr]">
-      <NavigationListComponent items={navigationItems} activeHref="/dashboard/reservations" label="Navigation du compte" />
-      <div className="flex min-w-0 flex-col gap-8">
-        <LinkTabsComponent items={tabItems} activeHref="/studios/42/bookings" label="Sections du studio" />
-        <MenuSelectComponent label="Filtrer par studio" options={studioOptions} selectedId={selectedStudio} onSelect={setSelectedStudio} />
-      </div>
-    </div>
-  );
-};
-
 /**
  * Navigation par liens : `LinkTabs` a sa propre page (voir `LinkTabs` plus
  * bas), `NavigationList` et `MenuSelect` ont chacun leur page dédiée
@@ -49,20 +35,25 @@ const NavigationCatalog = () => {
  * d'une zone (ex. fil de messages) tant que l'utilisateur ne remonte pas.
  */
 const meta = {
-  title: "Core/Navigation links",
-  component: NavigationCatalog,
+  title: "Core/Navigation/Overview",
   parameters: { layout: "padded" },
-} satisfies Meta<typeof NavigationCatalog>;
+} satisfies Meta;
 
 type Story = StoryObj<typeof meta>;
 
 const Catalog: Story = {
-  parameters: {
-    docs: {
-      source: {
-        code: `import { LinkTabs, MenuSelect, NavigationList } from "@recordair/ui-core";`,
-      },
-    },
+  render: function Catalog() {
+    const [selectedStudio, setSelectedStudio] = useState("all");
+
+    return (
+      <div className="grid w-full max-w-5xl gap-10 lg:grid-cols-[var(--size-sidebar)_1fr]">
+        <NavigationListComponent items={navigationItems} activeHref="/dashboard/reservations" label="Navigation du compte" />
+        <div className="flex min-w-0 flex-col gap-8">
+          <LinkTabsComponent items={tabItems} activeHref="/studios/42/bookings" label="Sections du studio" />
+          <MenuSelectComponent label="Filtrer par studio" options={studioOptions} selectedId={selectedStudio} onSelect={setSelectedStudio} />
+        </div>
+      </div>
+    );
   },
 };
 

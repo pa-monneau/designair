@@ -9,7 +9,7 @@ import { RatingBadge } from "@recordair/ui-core";
  * l'appelant (traduction, arrondi... restent côté app).
  */
 const meta = {
-  title: "Core/RatingBadge",
+  title: "Core/Data display/Rating badge",
   component: RatingBadge,
   tags: ["autodocs"],
   argTypes: {

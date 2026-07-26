@@ -1,85 +1,60 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ChoiceChip, Input, KeyValue } from "@recordair/ui-core";
+import { Input, KeyValue } from "@recordair/ui-core";
 import { CircleHelpIcon } from "@recordair/ui-core/icons";
 import {
-  BookingChip as BookingChipComponent,
-  BookingField as BookingFieldComponent,
   DetailCard as DetailCardComponent,
-  EmbeddedBookingCard as EmbeddedBookingCardComponent,
   ErrorState as ErrorStateComponent,
   FormCard as FormCardComponent,
   FormRow as FormRowComponent,
   Metric as MetricComponent,
   ProfileSectionCard as ProfileSectionCardComponent,
+  StatusPill as StatusPillComponent,
 } from "@recordair/ui-patterns";
 
-const ContentPatternsCatalog = () => (
-  <div className="grid w-full max-w-5xl gap-8 lg:grid-cols-2">
-    <FormCardComponent title="Paramètres de réservation" subtitle="Informations affichées avant le paiement.">
-      <div className="py-5">
-        <BookingFieldComponent label="Type de session">
-          <ChoiceChip selected>Enregistrement</ChoiceChip>
-          <ChoiceChip>Répétition</ChoiceChip>
-        </BookingFieldComponent>
-      </div>
-    </FormCardComponent>
-    <DetailCardComponent title="Détail de la réservation" description="Samedi 22 juin">
-      <dl className="grid gap-3">
-        <KeyValue label="Studio" value="Studio République" />
-        <KeyValue label="Durée" value="2 heures" />
-        <KeyValue label="Total" value="160 €" />
-      </dl>
-    </DetailCardComponent>
-    <EmbeddedBookingCardComponent eyebrow="Réservation proposée" title="Studio République, 22 juin" metadata="2 h × 80 € = 160 €" actionLabel="Voir la proposition" actionHref="#" />
-    <div className="grid grid-cols-3 gap-6 rounded-lg border border-neutral-200 bg-neutral-0 p-6">
-      <MetricComponent label="Réservations" value="31" supportingText="Ce mois-ci" />
-      <MetricComponent label="Occupation" value="68 %" supportingText="+6 points" />
-      <MetricComponent label="Revenu" value="4 280 €" supportingText="Net" />
-    </div>
-  </div>
-);
-
 /**
- * Contenu et réservation : `BookingChip` (créneau horaire sélectionnable),
- * `BookingField` (ligne de formulaire de réservation), `FormRow`/`FormCard`
- * (structure de formulaire générique), `ProfileSectionCard` (section de
- * profil), `DetailCard` (récapitulatif clé/valeur), `EmbeddedBookingCard`
- * (réservation liée dans un fil de messages), `ErrorState` (page d'erreur),
- * `Metric` (indicateur chiffré compact).
+ * Structure de contenu générique, partagée entre Record'air, Home'air et
+ * Bi'air : `FormRow`/`FormCard` (structure de formulaire), `ProfileSectionCard`
+ * (section de profil), `DetailCard` (récapitulatif clé/valeur), `ErrorState`
+ * (page d'erreur), `Metric` (indicateur chiffré compact), `StatusPill`
+ * (pastille de statut — alias fin de `Badge`, sans les tailles `xs`/`dot`,
+ * voir Core/Data display/Badge pour ces variantes).
  */
 const meta = {
-  title: "Patterns/Content and booking",
-  component: ContentPatternsCatalog,
+  title: "Patterns/Content and data",
   parameters: { layout: "padded" },
-} satisfies Meta<typeof ContentPatternsCatalog>;
+} satisfies Meta;
 
 type Story = StoryObj<typeof meta>;
 
-const Catalog: Story = {
-  parameters: {
-    docs: {
-      source: {
-        code: `import { KeyValue } from "@recordair/ui-core";
-import { BookingField, DetailCard, EmbeddedBookingCard, FormCard, Metric } from "@recordair/ui-patterns";`,
-      },
-    },
-  },
-};
-
-const BookingChip: Story = {
-  render: () => <BookingChipComponent active>14:00</BookingChipComponent>,
-};
-
-const BookingField: Story = {
-  render: () => <BookingFieldComponent label="Type de session"><ChoiceChip selected>Enregistrement</ChoiceChip><ChoiceChip>Répétition</ChoiceChip></BookingFieldComponent>,
+const Overview: Story = {
+  render: () => (
+    <div className="grid w-full max-w-5xl gap-8 lg:grid-cols-2">
+      <FormCardComponent title="Informations" subtitle="Données visibles publiquement.">
+        <div className="py-5"><FormRowComponent label="Nom" htmlFor="pattern-name" last><Input id="pattern-name" /></FormRowComponent></div>
+      </FormCardComponent>
+      <DetailCardComponent title="Récapitulatif" description="Résumé d'une action en attente de confirmation">
+        <dl className="grid gap-3">
+          <KeyValue label="Référence" value="#4821" />
+          <KeyValue label="Statut" value="En attente" />
+          <KeyValue label="Total" value="160 €" />
+        </dl>
+      </DetailCardComponent>
+      <div className="grid grid-cols-3 gap-6 rounded-lg border border-neutral-200 bg-neutral-0 p-6">
+        <MetricComponent label="Volume" value="31" supportingText="Ce mois-ci" />
+        <MetricComponent label="Taux" value="68 %" supportingText="+6 points" />
+        <MetricComponent label="Revenu" value="4 280 €" supportingText="Net" />
+      </div>
+      <div className="flex flex-wrap items-center gap-3 rounded-lg border border-neutral-200 bg-neutral-0 p-6">
+        <StatusPillComponent label="Vérifié" tone="success" />
+        <StatusPillComponent label="En attente" tone="warning" />
+        <StatusPillComponent label="Refusé" tone="error" />
+      </div>
+    </div>
+  ),
 };
 
 const DetailCard: Story = {
   render: () => <div className="w-96"><DetailCardComponent title="Détail"><KeyValue label="Total" value="160 €" /></DetailCardComponent></div>,
-};
-
-const EmbeddedBookingCard: Story = {
-  render: () => <EmbeddedBookingCardComponent eyebrow="Réservation proposée" title="Studio République, 22 juin" metadata="2 h × 80 € = 160 €" actionLabel="Voir la proposition" actionHref="#" />,
 };
 
 const ErrorState: Story = {
@@ -108,16 +83,24 @@ const ProfileSectionCard: Story = {
   ),
 };
 
+const StatusPill: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-3">
+      <StatusPillComponent label="Vérifié" tone="success" />
+      <StatusPillComponent label="En attente" tone="warning" />
+      <StatusPillComponent label="Refusé" tone="error" />
+    </div>
+  ),
+};
+
 export default meta;
 export {
-  BookingChip,
-  BookingField,
-  Catalog,
   DetailCard,
-  EmbeddedBookingCard,
   ErrorState,
   FormCard,
   FormRow,
   Metric,
+  Overview,
   ProfileSectionCard,
+  StatusPill,
 };

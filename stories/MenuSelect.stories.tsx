@@ -33,7 +33,7 @@ const sortOptions = [
  * rendue en `<span aria-disabled>` non focusable plutôt qu'un lien/bouton.
  */
 const meta = {
-  title: "Core/MenuSelect",
+  title: "Core/Navigation/Menu select",
   component: MenuSelect,
   tags: ["autodocs"],
   argTypes: {

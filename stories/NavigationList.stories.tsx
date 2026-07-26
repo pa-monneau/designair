@@ -17,7 +17,7 @@ const items = [
  * `MobileNavigation` (menu hamburger).
  */
 const meta = {
-  title: "Core/NavigationList",
+  title: "Core/Navigation/Navigation list",
   component: NavigationList,
   tags: ["autodocs"],
   argTypes: {
@@ -43,6 +43,11 @@ const meta = {
       description:
         "Composant de lien à utiliser à la place de `<a>` (ex. le `Link` localisé d'un routeur applicatif). Même convention que `RecordairLogo`.",
       control: false,
+    },
+    collapsed: {
+      description:
+        "Rail icône seule : le label est masqué et repris en tooltip natif (`title`). Pour une sidebar repliable.",
+      control: "boolean",
     },
     className: {
       description: "Classes additionnelles sur le `<nav>`.",
@@ -76,5 +81,15 @@ const Inverted: Story = {
   ),
 };
 
+const Collapsed: Story = {
+  name: "Replié (rail icône seule)",
+  args: { collapsed: true },
+  render: (args) => (
+    <div className="w-[var(--size-sidebar-collapsed)]">
+      <NavigationList {...args} />
+    </div>
+  ),
+};
+
 export default meta;
-export { Default, Inverted };
+export { Collapsed, Default, Inverted };

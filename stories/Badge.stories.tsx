@@ -8,7 +8,7 @@ import { Badge } from "@recordair/ui-core";
  * passe en coins arrondis plutôt qu'en capsule.
  */
 const meta = {
-  title: "Core/Badge",
+  title: "Core/Data display/Badge",
   component: Badge,
   tags: ["autodocs"],
   argTypes: {

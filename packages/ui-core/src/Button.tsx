@@ -53,6 +53,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   );
 });
 
+Button.displayName = "Button";
+
 export { Button };
 export type { ButtonProps };
 export type { ButtonShape, ButtonSize, ButtonVariant } from "./buttonStyles";

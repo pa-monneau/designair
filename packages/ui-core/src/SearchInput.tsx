@@ -11,5 +11,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(function Sear
   return <Input ref={ref} type="search" leadingIcon={<SearchIcon aria-hidden className="size-4" />} {...props} />;
 });
 
+SearchInput.displayName = "SearchInput";
+
 export { SearchInput };
 export type { SearchInputProps };

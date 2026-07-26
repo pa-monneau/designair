@@ -8,7 +8,7 @@ import { SearchIcon } from "@recordair/ui-core/icons";
  * (Record'air) quand une recherche ne remonte aucun studio.
  */
 const meta = {
-  title: "Core/EmptyState",
+  title: "Core/Feedback/Empty state",
   component: EmptyState,
   tags: ["autodocs"],
   argTypes: {

@@ -39,7 +39,7 @@ const ButtonCatalog = () => (
  * visuel de plusieurs boutons).
  */
 const meta = {
-  title: "Core/Button",
+  title: "Core/Actions/Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {

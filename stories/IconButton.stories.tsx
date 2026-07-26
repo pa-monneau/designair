@@ -10,7 +10,7 @@ import { BellIcon, HeartIcon, ShoppingCartIcon } from "@recordair/ui-core/icons"
  * `Core/Button` pour les autres variantes de boutons.
  */
 const meta = {
-  title: "Core/IconButton",
+  title: "Core/Actions/Icon button",
   component: IconButton,
   tags: ["autodocs"],
   argTypes: {
