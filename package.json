@@ -1,8 +1,8 @@
 {
-  "name": "recordair-design-system",
+  "name": "designair",
   "version": "0.2.14",
   "private": true,
-  "description": "Design system React extrait de Record'air sans couplage au produit.",
+  "description": "Lib UI React partagée entre les apps (Record'air, Home'air, Bi'air), publiée sous le scope npm historique @recordair.",
   "workspaces": [
     "packages/*"
   ],

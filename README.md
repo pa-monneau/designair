@@ -1,6 +1,6 @@
-# Record'air Design System
+# Design'air
 
-Bibliothèque React/TypeScript extraite de l'interface Record'air et publiée sous le scope npm [`@recordair`](https://www.npmjs.com/org/recordair).
+Lib UI React/TypeScript partagée entre les apps Record'air, Home'air et Bi'air, publiée sous le scope npm historique [`@recordair`](https://www.npmjs.com/org/recordair) (nom de scope inchangé pour ne pas casser les packages déjà publiés).
 
 - `@recordair/ui-core` : primitives accessibles, formulaires, feedback, navigation et icônes.
 - `@recordair/ui-patterns` : assemblages réutilisables construits avec `ui-core`.
