@@ -33,6 +33,7 @@ export {
   House as HouseIcon,
   Instagram as InstagramIcon,
   Laptop as LaptopIcon,
+  Layers as LayersIcon,
   Lightbulb as LightbulbIcon,
   Lock as LockIcon,
   LogOut as LogOutIcon,
