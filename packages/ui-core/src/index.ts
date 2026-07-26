@@ -80,6 +80,8 @@ export { Progress } from "./Progress";
 export type { ProgressProps } from "./Progress";
 export { Radio } from "./Radio";
 export type { RadioProps } from "./Radio";
+export { Range } from "./Range";
+export type { RangeProps } from "./Range";
 export { RatingBadge } from "./RatingBadge";
 export type { RatingBadgeProps, RatingBadgeSize } from "./RatingBadge";
 export { RatingStars } from "./RatingStars";
