@@ -5,7 +5,7 @@
   "description": "Patterns métier découplés issus de l'interface Record'air.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pa-monneau/recordair-ui"
+    "url": "https://github.com/pa-monneau/designair"
   },
   "type": "module",
   "files": [
