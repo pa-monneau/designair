@@ -24,5 +24,7 @@ const ButtonGroup = ({
   />
 );
 
+ButtonGroup.displayName = "ButtonGroup";
+
 export { ButtonGroup };
 export type { ButtonGroupProps };

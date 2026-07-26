@@ -27,5 +27,7 @@ const ThemeToggle = ({ theme, onToggle, size = "md", className, ...rest }: Theme
   </button>
 );
 
+ThemeToggle.displayName = "ThemeToggle";
+
 export { ThemeToggle };
 export type { ThemeToggleProps };

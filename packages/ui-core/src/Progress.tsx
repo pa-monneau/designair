@@ -24,5 +24,7 @@ const Progress = ({ value, label, className, ...rest }: ProgressProps) => {
   );
 };
 
+Progress.displayName = "Progress";
+
 export { Progress };
 export type { ProgressProps };

@@ -110,5 +110,7 @@ const Toast = ({
   );
 };
 
+Toast.displayName = "Toast";
+
 export { Toast };
 export type { ToastProps, ToastVariant, ToastPosition };

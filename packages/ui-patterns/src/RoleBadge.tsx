@@ -53,5 +53,7 @@ const RoleBadge = ({ role, label, trailing }: RoleBadgeProps) => {
   );
 };
 
+RoleBadge.displayName = "RoleBadge";
+
 export { RoleBadge };
 export type { Role, RoleBadgeProps };

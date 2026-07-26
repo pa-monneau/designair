@@ -34,5 +34,7 @@ const LinkButton = ({
   </LinkComponent>
 );
 
+LinkButton.displayName = "LinkButton";
+
 export { LinkButton };
 export type { LinkButtonProps };

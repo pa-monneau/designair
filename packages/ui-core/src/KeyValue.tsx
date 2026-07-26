@@ -19,5 +19,7 @@ const KeyValue = ({ label, value, className, ...rest }: KeyValueProps) => (
   </div>
 );
 
+KeyValue.displayName = "KeyValue";
+
 export { KeyValue };
 export type { KeyValueProps };

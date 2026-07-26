@@ -61,5 +61,7 @@ const IconButton = ({
   );
 };
 
+IconButton.displayName = "IconButton";
+
 export { IconButton };
 export type { IconButtonProps };

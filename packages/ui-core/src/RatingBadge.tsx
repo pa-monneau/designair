@@ -33,5 +33,7 @@ const RatingBadge = ({ label, size = "sm", className, ...rest }: RatingBadgeProp
   );
 };
 
+RatingBadge.displayName = "RatingBadge";
+
 export { RatingBadge };
 export type { RatingBadgeProps, RatingBadgeSize };

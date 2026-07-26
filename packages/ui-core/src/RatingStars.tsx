@@ -47,5 +47,7 @@ const RatingStars = ({
   );
 };
 
+RatingStars.displayName = "RatingStars";
+
 export { RatingStars };
 export type { RatingStarsProps, RatingStarsSize };

@@ -85,5 +85,7 @@ const NavigationList = ({
   </nav>
 );
 
+NavigationList.displayName = "NavigationList";
+
 export { NavigationList };
 export type { NavigationListItem, NavigationListProps, NavigationListTone };

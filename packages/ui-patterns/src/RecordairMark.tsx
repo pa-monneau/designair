@@ -26,5 +26,7 @@ const RecordairMark = (props: RecordairMarkProps) => {
   );
 };
 
+RecordairMark.displayName = "RecordairMark";
+
 export { RecordairMark };
 export type { RecordairMarkProps };

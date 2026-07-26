@@ -17,5 +17,7 @@ const FormCard = ({ title, subtitle, children }: FormCardProps) => (
   </Card>
 );
 
+FormCard.displayName = "FormCard";
+
 export { FormCard };
 export type { FormCardProps };

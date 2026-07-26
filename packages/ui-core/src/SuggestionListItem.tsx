@@ -46,5 +46,7 @@ const SuggestionListItem = ({
   </button>
 );
 
+SuggestionListItem.displayName = "SuggestionListItem";
+
 export { SuggestionListItem };
 export type { SuggestionListItemProps };

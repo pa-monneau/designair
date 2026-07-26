@@ -28,5 +28,7 @@ const SuggestionList = ({ heading, children, className }: SuggestionListProps) =
   </div>
 );
 
+SuggestionList.displayName = "SuggestionList";
+
 export { SuggestionList };
 export type { SuggestionListProps };

@@ -60,5 +60,7 @@ const ErrorState = ({
   </section>
 );
 
+ErrorState.displayName = "ErrorState";
+
 export { ErrorState };
 export type { ErrorStateAction, ErrorStateProps, ErrorStateTone };

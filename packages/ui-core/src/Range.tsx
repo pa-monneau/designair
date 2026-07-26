@@ -65,5 +65,7 @@ const Range = ({
   );
 };
 
+Range.displayName = "Range";
+
 export { Range };
 export type { RangeProps };

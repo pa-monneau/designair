@@ -20,5 +20,7 @@ const CardContent = ({
   <div className={classNames(paddingClasses[padding], className)} {...rest} />
 );
 
+CardContent.displayName = "CardContent";
+
 export { CardContent };
 export type { CardContentProps };

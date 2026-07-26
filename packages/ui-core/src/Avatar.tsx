@@ -39,5 +39,7 @@ const Avatar = ({ name, src, size = "md", alt = "", className, ...rest }: Avatar
   );
 };
 
+Avatar.displayName = "Avatar";
+
 export { Avatar };
 export type { AvatarProps, AvatarSize };

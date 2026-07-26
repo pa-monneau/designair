@@ -269,5 +269,7 @@ const DatePicker = ({
   );
 };
 
+DatePicker.displayName = "DatePicker";
+
 export { DatePicker };
 export type { DatePickerProps };

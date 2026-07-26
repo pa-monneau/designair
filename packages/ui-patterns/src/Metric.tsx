@@ -14,5 +14,7 @@ const Metric = ({ label, value, supportingText, className, ...rest }: MetricProp
   </div>
 );
 
+Metric.displayName = "Metric";
+
 export { Metric };
 export type { MetricProps };

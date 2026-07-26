@@ -161,5 +161,7 @@ const MenuSelect = ({
   );
 };
 
+MenuSelect.displayName = "MenuSelect";
+
 export { MenuSelect };
 export type { MenuSelectOption, MenuSelectProps };

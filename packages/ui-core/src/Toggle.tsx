@@ -67,5 +67,7 @@ const Toggle = ({
   );
 };
 
+Toggle.displayName = "Toggle";
+
 export { Toggle };
 export type { ToggleProps };

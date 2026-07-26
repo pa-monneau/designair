@@ -23,5 +23,7 @@ const DetailCard = ({ title, description, action, children }: DetailCardProps) =
   </Card>
 );
 
+DetailCard.displayName = "DetailCard";
+
 export { DetailCard };
 export type { DetailCardProps };

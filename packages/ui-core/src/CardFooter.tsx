@@ -20,5 +20,7 @@ const CardFooter = ({
   />
 );
 
+CardFooter.displayName = "CardFooter";
+
 export { CardFooter };
 export type { CardFooterProps };

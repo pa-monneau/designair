@@ -21,5 +21,7 @@ const ProfileSectionCard = ({
   </Card>
 );
 
+ProfileSectionCard.displayName = "ProfileSectionCard";
+
 export { ProfileSectionCard };
 export type { ProfileSectionCardProps };

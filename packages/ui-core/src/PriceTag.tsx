@@ -44,5 +44,7 @@ const PriceTag = ({ prefix, amount, suffix, size = "md", className, ...rest }: P
   );
 };
 
+PriceTag.displayName = "PriceTag";
+
 export { PriceTag };
 export type { PriceTagProps, PriceTagSize };

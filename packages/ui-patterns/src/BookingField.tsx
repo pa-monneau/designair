@@ -14,5 +14,7 @@ const BookingField = ({ label, children }: BookingFieldProps) => (
   </fieldset>
 );
 
+BookingField.displayName = "BookingField";
+
 export { BookingField };
 export type { BookingFieldProps };

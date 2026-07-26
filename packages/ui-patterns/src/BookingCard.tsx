@@ -70,5 +70,7 @@ const BookingCard = ({ booking, detailsLabel, as }: BookingCardProps) => (
   </Card>
 );
 
+BookingCard.displayName = "BookingCard";
+
 export { BookingCard };
 export type { BookingCardData, BookingCardProps, BookingStatus };

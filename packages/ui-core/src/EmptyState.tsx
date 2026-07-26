@@ -19,5 +19,7 @@ const EmptyState = ({ icon, title, description, action, className, ...rest }: Em
   </div>
 );
 
+EmptyState.displayName = "EmptyState";
+
 export { EmptyState };
 export type { EmptyStateProps };

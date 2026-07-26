@@ -74,5 +74,7 @@ const Stepper = ({
   </ol>
 );
 
+Stepper.displayName = "Stepper";
+
 export { Stepper };
 export type { Step, StepperProps };

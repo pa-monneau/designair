@@ -17,5 +17,7 @@ const BookingChip = ({ active, disabled, children, ...rest }: BookingChipProps) 
   </ChoiceChip>
 );
 
+BookingChip.displayName = "BookingChip";
+
 export { BookingChip };
 export type { BookingChipProps };

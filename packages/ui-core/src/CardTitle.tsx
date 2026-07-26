@@ -17,5 +17,7 @@ const CardTitle = ({ level = 3, className, ...rest }: CardTitleProps) => {
   );
 };
 
+CardTitle.displayName = "CardTitle";
+
 export { CardTitle };
 export type { CardTitleProps };

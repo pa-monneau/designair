@@ -64,5 +64,7 @@ const NotificationCard = ({
   </Card>
 );
 
+NotificationCard.displayName = "NotificationCard";
+
 export { NotificationCard };
 export type { NotificationCardData, NotificationCardProps };

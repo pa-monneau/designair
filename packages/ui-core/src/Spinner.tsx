@@ -18,5 +18,7 @@ const Spinner = ({ label, size = "md", className, ...rest }: SpinnerProps) => (
   <span role="status" aria-label={label} className={classNames("inline-block animate-spin rounded-full border-neutral-200 border-t-brand-primary", sizeClasses[size], className)} {...rest} />
 );
 
+Spinner.displayName = "Spinner";
+
 export { Spinner };
 export type { SpinnerProps, SpinnerSize };

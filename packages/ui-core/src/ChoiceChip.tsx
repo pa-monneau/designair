@@ -22,5 +22,7 @@ const ChoiceChip = ({ selected = false, icon, className, children, ...rest }: Ch
   </button>
 );
 
+ChoiceChip.displayName = "ChoiceChip";
+
 export { ChoiceChip };
 export type { ChoiceChipProps };

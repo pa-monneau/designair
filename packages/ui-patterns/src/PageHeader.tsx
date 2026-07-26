@@ -52,5 +52,7 @@ const PageHeader = ({
   </header>
 );
 
+PageHeader.displayName = "PageHeader";
+
 export { PageHeader };
 export type { PageHeaderLink, PageHeaderProps };

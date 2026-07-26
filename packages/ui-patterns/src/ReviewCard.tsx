@@ -38,5 +38,7 @@ const ReviewCard = ({ review, ratingLabel }: ReviewCardProps) => {
   );
 };
 
+ReviewCard.displayName = "ReviewCard";
+
 export { ReviewCard };
 export type { ReviewCardData, ReviewCardProps };

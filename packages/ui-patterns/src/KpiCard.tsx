@@ -43,6 +43,8 @@ const KpiCard = ({
   return body;
 };
 
+KpiCard.displayName = "KpiCard";
+
 export { KpiCard };
 export type { KpiCardProps };
 import { Card } from "@recordair/ui-core";

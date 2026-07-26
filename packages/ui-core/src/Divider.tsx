@@ -16,5 +16,7 @@ const Divider = ({ label }: DividerProps) => {
   );
 };
 
+Divider.displayName = "Divider";
+
 export { Divider };
 export type { DividerProps };

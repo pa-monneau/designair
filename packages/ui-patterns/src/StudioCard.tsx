@@ -113,5 +113,7 @@ const StudioCard = ({
   </LinkComponent>
 );
 
+StudioCard.displayName = "StudioCard";
+
 export { StudioCard };
 export type { StudioCardData, StudioCardGradient, StudioCardProps };

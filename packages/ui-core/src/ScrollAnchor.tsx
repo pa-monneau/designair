@@ -17,5 +17,7 @@ const ScrollAnchor = ({ signal, behavior = "smooth" }: ScrollAnchorProps) => {
   return <div ref={ref} aria-hidden />;
 };
 
+ScrollAnchor.displayName = "ScrollAnchor";
+
 export { ScrollAnchor };
 export type { ScrollAnchorProps };

@@ -39,5 +39,7 @@ const Field = ({
   );
 };
 
+Field.displayName = "Field";
+
 export { Field };
 export type { FieldProps };

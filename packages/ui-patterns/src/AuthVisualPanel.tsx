@@ -55,5 +55,7 @@ const AuthVisualPanel = ({
   </aside>
 );
 
+AuthVisualPanel.displayName = "AuthVisualPanel";
+
 export { AuthVisualPanel };
 export type { AuthTestimonial, AuthVisualPanelProps };

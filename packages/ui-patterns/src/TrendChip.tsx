@@ -45,5 +45,7 @@ const TrendChip = ({
   );
 };
 
+TrendChip.displayName = "TrendChip";
+
 export { TrendChip };
 export type { TrendChipProps, TrendDirection };

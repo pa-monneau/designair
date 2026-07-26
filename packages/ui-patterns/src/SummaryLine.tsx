@@ -11,5 +11,7 @@ const SummaryLine = ({ label, value, className }: SummaryLineProps) => (
   </div>
 );
 
+SummaryLine.displayName = "SummaryLine";
+
 export { SummaryLine };
 export type { SummaryLineProps };

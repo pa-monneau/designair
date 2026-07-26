@@ -52,5 +52,7 @@ const LinkTabs = ({ items, activeHref, label, className }: LinkTabsProps) => (
   </nav>
 );
 
+LinkTabs.displayName = "LinkTabs";
+
 export { LinkTabs };
 export type { LinkTabItem, LinkTabsProps };

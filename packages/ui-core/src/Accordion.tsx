@@ -84,5 +84,7 @@ const Accordion = ({
   );
 };
 
+Accordion.displayName = "Accordion";
+
 export { Accordion };
 export type { AccordionItem, AccordionProps };

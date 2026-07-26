@@ -115,5 +115,7 @@ const Modal = ({
   );
 };
 
+Modal.displayName = "Modal";
+
 export { Modal };
 export type { ModalProps };

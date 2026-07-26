@@ -123,5 +123,7 @@ const MenuButton = ({
   );
 };
 
+MenuButton.displayName = "MenuButton";
+
 export { MenuButton };
 export type { MenuButtonAlign, MenuButtonProps };

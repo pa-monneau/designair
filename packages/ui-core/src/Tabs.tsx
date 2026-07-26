@@ -41,5 +41,7 @@ const Tabs = ({ items, activeId, label, onChange, className }: TabsProps) => (
   </div>
 );
 
+Tabs.displayName = "Tabs";
+
 export { Tabs };
 export type { TabItem, TabsProps };

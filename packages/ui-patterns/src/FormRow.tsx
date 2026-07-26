@@ -40,5 +40,7 @@ const FormRow = ({
   </div>
 );
 
+FormRow.displayName = "FormRow";
+
 export { FormRow };
 export type { FormRowProps };

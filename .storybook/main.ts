@@ -23,6 +23,16 @@ const config: StorybookConfig = {
       "@recordair/ui-core/icons",
       "@recordair/ui-patterns",
     ];
+    // Le code source affiché dans la doc est dérivé du nom des composants
+    // rendus. En build de production, la minification renomme les fonctions
+    // (`LinkButton` devient `c`), ce qui produirait des exemples faux et non
+    // copiables sur le Storybook déployé — invisible en dev, où rien n'est
+    // minifié. `keepNames` préserve ces noms ; le coût de taille ne concerne
+    // que le bundle de la doc, jamais les packages publiés.
+    viteConfig.esbuild = {
+      ...(typeof viteConfig.esbuild === "object" ? viteConfig.esbuild : {}),
+      keepNames: true,
+    };
     return viteConfig;
   },
 };

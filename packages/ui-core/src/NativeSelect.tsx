@@ -35,5 +35,7 @@ const NativeSelect = ({
   </span>
 );
 
+NativeSelect.displayName = "NativeSelect";
+
 export { NativeSelect };
 export type { NativeSelectProps };

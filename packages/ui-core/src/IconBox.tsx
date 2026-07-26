@@ -42,5 +42,7 @@ const IconBox = ({ tone = "neutral", size = "md", icon, pill = false, className,
   </span>
 );
 
+IconBox.displayName = "IconBox";
+
 export { IconBox };
 export type { IconBoxProps, IconBoxSize, IconBoxTone };

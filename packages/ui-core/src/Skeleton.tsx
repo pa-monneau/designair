@@ -19,5 +19,7 @@ const Skeleton = ({ shape = "line", className, ...rest }: SkeletonProps) => (
   />
 );
 
+Skeleton.displayName = "Skeleton";
+
 export { Skeleton };
 export type { SkeletonProps };

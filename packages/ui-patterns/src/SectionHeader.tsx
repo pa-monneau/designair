@@ -20,6 +20,8 @@ const SectionHeader = ({ title, actionLabel, actionHref }: SectionHeaderProps) =
   </div>
 );
 
+SectionHeader.displayName = "SectionHeader";
+
 export { SectionHeader };
 export type { SectionHeaderProps };
 import { LinkButton } from "@recordair/ui-core";

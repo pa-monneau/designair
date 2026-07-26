@@ -63,5 +63,7 @@ const Badge = ({
   </span>
 );
 
+Badge.displayName = "Badge";
+
 export { Badge };
 export type { BadgeProps, BadgeSize, BadgeTone };

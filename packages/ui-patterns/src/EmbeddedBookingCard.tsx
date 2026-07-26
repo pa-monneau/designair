@@ -43,5 +43,7 @@ const EmbeddedBookingCard = ({
   </Card>
 );
 
+EmbeddedBookingCard.displayName = "EmbeddedBookingCard";
+
 export { EmbeddedBookingCard };
 export type { EmbeddedBookingCardProps };

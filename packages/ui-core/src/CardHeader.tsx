@@ -23,5 +23,7 @@ const CardHeader = ({
   />
 );
 
+CardHeader.displayName = "CardHeader";
+
 export { CardHeader };
 export type { CardHeaderProps };

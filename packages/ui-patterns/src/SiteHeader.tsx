@@ -36,5 +36,7 @@ const SiteHeader = ({
   </header>
 );
 
+SiteHeader.displayName = "SiteHeader";
+
 export { SiteHeader };
 export type { SiteHeaderProps };

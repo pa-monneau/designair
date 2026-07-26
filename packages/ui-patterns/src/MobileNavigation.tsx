@@ -39,5 +39,7 @@ const MobileNavigation = ({
   </details>
 );
 
+MobileNavigation.displayName = "MobileNavigation";
+
 export { MobileNavigation };
 export type { MobileNavigationProps };

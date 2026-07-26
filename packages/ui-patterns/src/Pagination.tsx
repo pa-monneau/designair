@@ -124,5 +124,7 @@ const Pagination = ({
   );
 };
 
+Pagination.displayName = "Pagination";
+
 export { Pagination };
 export type { PaginationLabels, PaginationProps };

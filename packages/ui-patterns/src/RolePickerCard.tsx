@@ -128,5 +128,7 @@ const RolePickerCard = ({
   );
 };
 
+RolePickerCard.displayName = "RolePickerCard";
+
 export { RolePickerCard };
 export type { RolePickerCardProps, RolePickerInteraction };

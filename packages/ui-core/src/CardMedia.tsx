@@ -24,5 +24,7 @@ const CardMedia = ({
   />
 );
 
+CardMedia.displayName = "CardMedia";
+
 export { CardMedia };
 export type { CardMediaProps, CardMediaRatio };

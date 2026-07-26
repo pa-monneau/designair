@@ -48,5 +48,7 @@ const Card = ({
   );
 };
 
+Card.displayName = "Card";
+
 export { Card };
 export type { CardElement, CardPadding, CardProps, CardVariant };

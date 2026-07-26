@@ -53,5 +53,7 @@ const ContentBlock = ({ block, className, ...rest }: ContentBlockProps) => {
   );
 };
 
+ContentBlock.displayName = "ContentBlock";
+
 export { ContentBlock };
 export type { ContentBlockData, ContentBlockProps };

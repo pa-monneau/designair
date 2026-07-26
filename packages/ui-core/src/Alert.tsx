@@ -34,5 +34,7 @@ const Alert = ({ tone = "info", title, icon, className, children, ...rest }: Ale
   </div>
 );
 
+Alert.displayName = "Alert";
+
 export { Alert };
 export type { AlertProps, AlertTone };

@@ -32,5 +32,7 @@ const SubmitButton = ({
   );
 };
 
+SubmitButton.displayName = "SubmitButton";
+
 export { SubmitButton };
 export type { SubmitButtonProps };

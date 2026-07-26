@@ -59,5 +59,7 @@ const RecordairLogo = ({
   );
 };
 
+RecordairLogo.displayName = "RecordairLogo";
+
 export { RecordairLogo };
 export type { RecordairLogoProps, RecordairLogoSize };
