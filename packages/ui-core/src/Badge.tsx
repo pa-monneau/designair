@@ -13,7 +13,7 @@ type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
 };
 
 const toneClasses: Record<BadgeTone, string> = {
-  neutral: "bg-neutral-100 text-neutral-700",
+  neutral: "bg-line-subtle text-fg-secondary",
   brand: "bg-role-studio-bg text-role-studio-text",
   success: "bg-success-bg text-success-text",
   error: "bg-error-bg text-error-text",

@@ -21,7 +21,7 @@ const Field = ({
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={htmlFor} className="text-label font-medium text-neutral-700">
+      <label htmlFor={htmlFor} className="text-label font-medium text-fg-secondary">
         {label}
         {required ? <span aria-hidden> *</span> : null}
       </label>
@@ -31,7 +31,7 @@ const Field = ({
           {error}
         </p>
       ) : hint ? (
-        <p id={descriptionId} className="text-xs text-neutral-500">
+        <p id={descriptionId} className="text-xs text-fg-tertiary">
           {hint}
         </p>
       ) : null}

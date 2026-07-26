@@ -1,6 +1,6 @@
 {
   "name": "@recordair/theme-recordair",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "author": "Pierre-Alexandre Monneau",
   "description": "Tokens Tailwind CSS v4 du thème Record'air.",
   "sideEffects": [

@@ -21,8 +21,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
         {...rest}
       />
       <span className="flex flex-col gap-0.5">
-        <span className="text-sm font-medium text-neutral-900">{label}</span>
-        {description ? <span className="text-label text-neutral-500">{description}</span> : null}
+        <span className="text-sm font-medium text-fg-primary">{label}</span>
+        {description ? <span className="text-label text-fg-tertiary">{description}</span> : null}
       </span>
     </label>
   );

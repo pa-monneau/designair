@@ -1,6 +1,6 @@
 {
   "name": "recordair-design-system",
-  "version": "0.2.11",
+  "version": "0.2.13",
   "private": true,
   "description": "Design system React extrait de Record'air sans couplage au produit.",
   "workspaces": [

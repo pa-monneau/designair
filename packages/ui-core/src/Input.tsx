@@ -17,14 +17,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       ref={ref}
       aria-invalid={invalid || undefined}
       className={classNames(
-        "h-[var(--size-btn-md)] w-full rounded-md border-control bg-neutral-0 px-4 text-sm text-neutral-900 placeholder:text-neutral-400",
+        "h-[var(--size-btn-md)] w-full rounded-md border-control bg-surface-elevated px-4 text-sm text-fg-primary placeholder:text-fg-tertiary",
         "focus:outline-none focus:shadow-focus",
-        "disabled:bg-neutral-100 disabled:text-neutral-400",
+        "disabled:bg-surface-page disabled:text-fg-tertiary",
         Boolean(leadingIcon) && "pl-11",
         Boolean(trailingIcon) && "pr-11",
         invalid
           ? "border-error focus:border-error"
-          : "border-neutral-200 focus:border-brand-primary",
+          : "border-line focus:border-brand-primary",
         className,
       )}
       {...rest}
@@ -38,13 +38,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   return (
     <span className="relative block w-full">
       {leadingIcon ? (
-        <span className="pointer-events-none absolute inset-y-0 left-4 grid place-items-center text-neutral-400">
+        <span className="pointer-events-none absolute inset-y-0 left-4 grid place-items-center text-fg-tertiary">
           {leadingIcon}
         </span>
       ) : null}
       {input}
       {trailingIcon ? (
-        <span className="absolute inset-y-0 right-4 grid place-items-center text-neutral-500">
+        <span className="absolute inset-y-0 right-4 grid place-items-center text-fg-secondary">
           {trailingIcon}
         </span>
       ) : null}

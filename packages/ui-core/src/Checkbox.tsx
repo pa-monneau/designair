@@ -16,10 +16,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
       type="checkbox"
       aria-invalid={invalid || undefined}
       className={classNames(
-        "mt-0.5 size-5 shrink-0 rounded-sm border-control bg-neutral-0 transition",
+        "mt-0.5 size-5 shrink-0 rounded-sm border-control bg-surface-elevated transition",
         "checked:border-brand-primary checked:bg-brand-primary",
         "focus:outline-none focus:shadow-focus",
-        invalid ? "border-error" : "border-neutral-300",
+        invalid ? "border-error" : "border-line",
         className,
       )}
       {...rest}

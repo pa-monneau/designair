@@ -15,10 +15,10 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function Textare
       ref={ref}
       aria-invalid={invalid || undefined}
       className={classNames(
-        "min-h-28 w-full resize-y rounded-md border-control bg-neutral-0 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400",
+        "min-h-28 w-full resize-y rounded-md border-control bg-surface-elevated px-4 py-3 text-sm text-fg-primary placeholder:text-fg-tertiary",
         "focus:outline-none focus:shadow-focus",
-        "disabled:bg-neutral-100 disabled:text-neutral-400",
-        invalid ? "border-error focus:border-error" : "border-neutral-200 focus:border-brand-primary",
+        "disabled:bg-surface-page disabled:text-fg-tertiary",
+        invalid ? "border-error focus:border-error" : "border-line focus:border-brand-primary",
         className,
       )}
       {...rest}

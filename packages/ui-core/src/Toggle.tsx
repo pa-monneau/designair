@@ -39,7 +39,7 @@ const Toggle = ({
       htmlFor={id}
       className={classNames(
         "relative inline-flex h-[var(--size-toggle-track-height)] w-[var(--size-toggle-track-width)] shrink-0 items-center rounded-full transition-colors focus-within:shadow-focus",
-        isChecked ? "bg-brand-primary" : "bg-neutral-200",
+        isChecked ? "bg-brand-primary" : "bg-line",
         disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer",
       )}
     >
@@ -57,7 +57,7 @@ const Toggle = ({
       <span
         aria-hidden
         className={classNames(
-          "inline-block size-[var(--size-toggle-thumb)] transform rounded-full bg-neutral-0 shadow-sm transition-transform",
+          "inline-block size-[var(--size-toggle-thumb)] transform rounded-full bg-surface-elevated shadow-sm transition-transform",
           isChecked
             ? "translate-x-[var(--spacing-toggle-on)]"
             : "translate-x-[var(--spacing-toggle-off)]",
