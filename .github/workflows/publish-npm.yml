@@ -1,0 +1,42 @@
+name: Publish npm packages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: npm-publish-main
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ github.event_name == 'workflow_dispatch' || !startsWith(github.event.head_commit.message, 'chore(release):') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - name: Publish changed packages
+        run: |
+          base_sha="${{ github.event.before }}"
+          if [ -z "$base_sha" ] || [ "$base_sha" = "0000000000000000000000000000000000000000" ]; then
+            base_sha="$(git rev-parse HEAD~1)"
+          fi
+
+          ./scripts/publish-changed-packages.sh "$base_sha" "${{ github.sha }}"
