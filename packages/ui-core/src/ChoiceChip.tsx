@@ -12,7 +12,7 @@ const ChoiceChip = ({ selected = false, icon, className, children, ...rest }: Ch
     aria-pressed={selected}
     className={classNames(
       "inline-flex h-[var(--size-btn-sm)] items-center gap-2 rounded-full border px-4 text-sm font-semibold transition focus:outline-none focus-visible:shadow-focus",
-      selected ? "border-brand-primary bg-role-studio-bg text-role-studio-text" : "border-neutral-200 bg-neutral-0 text-neutral-700 hover:bg-neutral-100",
+      selected ? "border-transparent bg-selected-tint text-selected-fg" : "border-line bg-transparent text-fg-secondary hover:bg-line-subtle",
       className,
     )}
     {...rest}
