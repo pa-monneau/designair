@@ -45,6 +45,12 @@ const config = {
       "@recordair/ui-patterns",
     ];
     viteConfig.plugins = [...(viteConfig.plugins ?? []), stripUseClientDirectiveForStorybook];
+    viteConfig.build ??= {};
+    // Les trois chunks au-dessus de la limite Vite par défaut viennent de
+    // Storybook lui-même (`iframe`, `DocsRenderer`, `axe`). Leur budget réel
+    // est contrôlé après build dans `verify-storybook-bundle.mjs` ; ce seuil
+    // évite que l'avertissement générique masque ce contrôle précis.
+    viteConfig.build.chunkSizeWarningLimit = 1_300;
     // Le code source affiché dans la doc est dérivé du nom des composants
     // rendus. En build de production, la minification renomme les fonctions
     // (`LinkButton` devient `c`), ce qui produirait des exemples faux et non
