@@ -20,7 +20,11 @@
     "test:watch": "node scripts/run-with-node24.mjs test:watch:inner",
     "test:watch:inner": "npm run build && npm run test:clear-cache && vitest",
     "test:coverage": "node scripts/run-with-node24.mjs test:coverage:inner",
-    "test:coverage:inner": "npm run build && npm run test:clear-cache && vitest run --coverage",
+    "test:coverage:inner": "npm run build && npm run test:clear-cache && vitest run --coverage --project=unit --project=storybook",
+    "test:visual": "node scripts/run-with-node24.mjs test:visual:inner",
+    "test:visual:inner": "npm run build && vitest run --project=visual",
+    "test:visual:update": "node scripts/run-with-node24.mjs test:visual:update:inner",
+    "test:visual:update:inner": "npm run build && vitest run --project=visual --update",
     "test:clear-cache": "rm -rf node_modules/.cache/storybook/*/*/sb-vitest",
     "pack:dry-run": "npm pack --cache .npm-cache --workspaces --dry-run",
     "release:publish": "bash scripts/publish-packages.sh"

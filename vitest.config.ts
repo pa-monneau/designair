@@ -38,7 +38,39 @@ export default defineConfig({
           name: 'unit',
           environment: 'jsdom',
           include: ['tests/**/*.test.ts?(x)'],
+          exclude: ['tests/visual/**'],
           setupFiles: ['tests/setup.ts'],
+        },
+      },
+      {
+        extends: true,
+        test: {
+          name: 'visual',
+          include: ['tests/visual/**/*.visual.test.tsx'],
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright({}),
+            instances: [{ browser: 'chromium', viewport: { width: 1280, height: 720 } }],
+            screenshotDirectory: '__screenshots__',
+            expect: {
+              toMatchScreenshot: {
+                comparatorName: 'pixelmatch',
+                comparatorOptions: {
+                  allowedMismatchedPixelRatio: 0.001,
+                  threshold: 0.1,
+                },
+                resolveScreenshotPath: ({
+                  arg,
+                  browserName,
+                  ext,
+                  platform,
+                  testFileName,
+                  root,
+                }) => path.join(root, 'tests', '__screenshots__', testFileName, `${arg}-${browserName}-${platform}${ext}`),
+              },
+            },
+          },
         },
       },
       {

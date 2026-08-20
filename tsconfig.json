@@ -19,5 +19,5 @@
       "@recordair/ui-patterns": ["packages/ui-patterns/src/index.ts"]
     }
   },
-  "include": ["packages/**/*.ts", "packages/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx", ".storybook/**/*.ts", "tests/**/*.ts", "tests/**/*.tsx"]
+  "include": ["packages/**/*.ts", "packages/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx", ".storybook/**/*.ts", "tests/**/*.ts", "tests/**/*.tsx", "vitest.shims.d.ts"]
 }
