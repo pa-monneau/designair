@@ -44,7 +44,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   primary:
     "bg-gradient-to-r from-brand-gradient-from to-brand-gradient-to text-neutral-0 shadow-brand hover:brightness-110",
   secondary:
-    "border-control border-neutral-200 bg-neutral-0 text-neutral-900 hover:border-neutral-300 hover:bg-neutral-50",
+    "border-control border-line bg-surface-elevated text-fg-primary hover:bg-line-subtle",
   ghost: "bg-transparent text-fg-secondary hover:bg-line-subtle",
   soft: "bg-role-studio-bg text-role-studio-text hover:brightness-95",
   tinted: "bg-line-subtle text-fg-primary hover:bg-line",

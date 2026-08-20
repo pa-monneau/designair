@@ -1,6 +1,6 @@
 {
   "name": "@recordair/ui-core",
-  "version": "0.3.31",
+  "version": "0.3.32",
   "author": "Pierre-Alexandre Monneau",
   "description": "Primitives React accessibles et thémables extraites de Record'air.",
   "repository": {
