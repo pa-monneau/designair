@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { Button, ChoiceChip, EmptyState, IconBox, Progress, Tabs } from "@recordair/ui-core";
 import { CalendarDaysIcon, MicIcon, SearchIcon } from "@recordair/ui-core/icons";
 
@@ -44,6 +45,16 @@ const Catalog: Story = {
         />
       </div>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const pastTab = canvas.getByRole("tab", { name: "Passées" });
+    await userEvent.click(pastTab);
+    await expect(pastTab).toHaveAttribute("aria-selected", "true");
+
+    const rehearsalChip = canvas.getByRole("button", { name: "Répétition" });
+    await userEvent.click(rehearsalChip);
+    await expect(rehearsalChip).toHaveAttribute("aria-pressed", "true");
   },
 };
 

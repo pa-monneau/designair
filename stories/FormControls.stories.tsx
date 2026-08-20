@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import {
   Checkbox,
   Field,
@@ -76,16 +77,31 @@ const FieldStory: Story = {
 const InputStory: Story = {
   name: "Input",
   render: () => <div className="w-96"><Input aria-label="Adresse email" placeholder="artiste@recordair.com" leadingIcon={<MailIcon aria-hidden className="size-4" />} /></div>,
+  play: async ({ canvasElement }) => {
+    const input = within(canvasElement).getByRole("textbox", { name: "Adresse email" });
+    await userEvent.type(input, "artiste@recordair.com");
+    await expect(input).toHaveValue("artiste@recordair.com");
+  },
 };
 
 const SearchInputStory: Story = {
   name: "SearchInput",
   render: () => <div className="w-96"><SearchInput aria-label="Rechercher un studio" placeholder="Studio, ville ou équipement" /></div>,
+  play: async ({ canvasElement }) => {
+    const input = within(canvasElement).getByRole("searchbox", { name: "Rechercher un studio" });
+    await userEvent.type(input, "Lille");
+    await expect(input).toHaveValue("Lille");
+  },
 };
 
 const TextareaStory: Story = {
   name: "Textarea",
   render: () => <div className="w-96"><Textarea aria-label="Description" placeholder="Décris ton projet" /></div>,
+  play: async ({ canvasElement }) => {
+    const textarea = within(canvasElement).getByRole("textbox", { name: "Description" });
+    await userEvent.type(textarea, "Session acoustique");
+    await expect(textarea).toHaveValue("Session acoustique");
+  },
 };
 
 const SelectStory: Story = {
@@ -96,21 +112,40 @@ const SelectStory: Story = {
 const NativeSelectStory: Story = {
   name: "NativeSelect",
   render: () => <div className="w-96"><NativeSelect aria-label="Type de studio"><option>Enregistrement</option><option>Répétition</option></NativeSelect></div>,
+  play: async ({ canvasElement }) => {
+    const select = within(canvasElement).getByRole("combobox", { name: "Type de studio" });
+    await userEvent.selectOptions(select, "Répétition");
+    await expect(select).toHaveValue("Répétition");
+  },
 };
 
 const CheckboxStory: Story = {
   name: "Checkbox",
   render: () => <label className="flex items-center gap-3 text-sm"><Checkbox defaultChecked />Conditions acceptées</label>,
+  play: async ({ canvasElement }) => {
+    const checkbox = within(canvasElement).getByRole("checkbox", { name: "Conditions acceptées" });
+    await userEvent.click(checkbox);
+    await expect(checkbox).not.toBeChecked();
+  },
 };
 
 const RadioStory: Story = {
   name: "Radio",
   render: () => <Radio name="format" label="Session studio" description="Réservation avec ingénieur son" defaultChecked />,
+  play: async ({ canvasElement }) => {
+    const radio = within(canvasElement).getByRole("radio", { name: /Session studio/ });
+    await expect(radio).toBeChecked();
+  },
 };
 
 const ToggleStory: Story = {
   name: "Toggle",
   render: () => <Toggle ariaLabel="Activer les notifications" defaultChecked />,
+  play: async ({ canvasElement }) => {
+    const toggle = within(canvasElement).getByRole("checkbox", { name: "Activer les notifications" });
+    await userEvent.click(toggle);
+    await expect(toggle).not.toBeChecked();
+  },
 };
 
 export default meta;

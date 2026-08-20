@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { ThemeToggle } from "@recordair/ui-core";
 
 /**
@@ -43,6 +44,11 @@ const Default: Story = {
   render: (args) => {
     const [theme, setTheme] = useState(args.theme);
     return <ThemeToggle {...args} theme={theme} onToggle={() => setTheme((t) => (t === "dark" ? "light" : "dark"))} />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole("button", { name: "Passer en thème sombre" }));
+    await expect(canvas.getByRole("button", { name: "Passer en thème clair" })).toBeVisible();
   },
 };
 

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { Avatar, MenuButton } from "@recordair/ui-core";
 import { LogOutIcon, SettingsIcon, UserIcon } from "@recordair/ui-core/icons";
 
@@ -106,7 +107,17 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const Default: Story = {};
+const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole("button", { name: "Alex Martin" });
+    await userEvent.click(trigger);
+    await expect(canvas.getByRole("menu")).toBeVisible();
+    await userEvent.keyboard("{Escape}");
+    await expect(canvas.queryByRole("menu")).not.toBeInTheDocument();
+    await expect(trigger).toHaveFocus();
+  },
+};
 
 const IconOnly: Story = {
   name: "Déclencheur icône seule (mobile)",

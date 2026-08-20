@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { Alert, Button, Modal, Skeleton, Spinner, Toast } from "@recordair/ui-core";
 
 const ModalExample = () => {
@@ -60,6 +61,16 @@ const AlertStory: Story = {
 const ModalStory: Story = {
   name: "Modal",
   render: () => <ModalExample />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole("button", { name: "Ouvrir la modale" });
+    await userEvent.click(trigger);
+    const page = within(document.body);
+    await expect(page.getByRole("dialog")).toBeVisible();
+    await userEvent.keyboard("{Escape}");
+    await expect(page.queryByRole("dialog")).not.toBeInTheDocument();
+    await expect(trigger).toHaveFocus();
+  },
 };
 
 const ToastStory: Story = {

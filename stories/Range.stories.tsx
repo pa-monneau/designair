@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, fireEvent, within } from "storybook/test";
 import { Range } from "@recordair/ui-core";
 
 /**
@@ -50,6 +51,11 @@ const Default: Story = {
         <Range {...args} value={value} onChange={(event) => setValue(Number(event.target.value))} />
       </div>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const range = within(canvasElement).getByRole("slider", { name: "Valeur" });
+    fireEvent.change(range, { target: { value: "41" } });
+    await expect(range).toHaveValue("41");
   },
 };
 

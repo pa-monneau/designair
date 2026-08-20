@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { DatePicker } from "@recordair/ui-core";
 
 const isWeekend = (iso: string): boolean => {
@@ -97,7 +98,17 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const Default: Story = {};
+const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole("button", { name: "Choisir une date" });
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute("aria-expanded", "true");
+    await userEvent.click(canvas.getByRole("button", { name: "15" }));
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await expect(trigger).toHaveTextContent("15 août 2026");
+  },
+};
 
 const Inline: Story = {
   name: "Mode inline (intégré à un conteneur)",

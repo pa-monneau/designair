@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { MenuSelect } from "@recordair/ui-core";
 
 const studioOptions = [
@@ -90,6 +91,14 @@ const WithCallback: Story = {
         onSelect={setSelected}
       />
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole("button", { name: "Filtrer par studio" });
+    await userEvent.click(trigger);
+    await userEvent.click(canvas.getByRole("menuitemradio", { name: "Studio République" }));
+    await expect(canvas.queryByRole("menu")).not.toBeInTheDocument();
+    await expect(trigger).toHaveFocus();
   },
 };
 
