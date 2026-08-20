@@ -1,13 +1,30 @@
 import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
-import type { StorybookConfig } from "@storybook/react-vite";
 
-const config: StorybookConfig = {
+const stripUseClientDirectiveForStorybook = {
+  name: "designair:strip-use-client-directive-for-storybook",
+  enforce: "pre",
+  transform(code, id) {
+    // Les packages publiés gardent `"use client"` pour Next.js. Storybook
+    // s'exécute entièrement dans le navigateur : le retirer de son bundle
+    // dédié évite que Rollup le jette lui-même avec un warning, sans modifier
+    // les artefacts npm consommés par les applications.
+    if (!id.includes("/packages/") || !id.includes("/dist/") || !id.endsWith(".js")) {
+      return null;
+    }
+
+    const transformed = code.replace(/^["']use client["'];?\s*/, "");
+    return transformed === code ? null : { code: transformed, map: null };
+  },
+};
+
+/** @type {import("@storybook/react-vite").StorybookConfig} */
+const config = {
   stories: ["../stories/**/*.stories.@(ts|tsx)"],
   addons: [
     getAbsolutePath("@storybook/addon-docs"),
     getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-vitest")
+    getAbsolutePath("@storybook/addon-vitest"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
@@ -27,6 +44,7 @@ const config: StorybookConfig = {
       "@recordair/ui-core/icons",
       "@recordair/ui-patterns",
     ];
+    viteConfig.plugins = [...(viteConfig.plugins ?? []), stripUseClientDirectiveForStorybook];
     // Le code source affiché dans la doc est dérivé du nom des composants
     // rendus. En build de production, la minification renomme les fonctions
     // (`LinkButton` devient `c`), ce qui produirait des exemples faux et non
@@ -43,6 +61,6 @@ const config: StorybookConfig = {
 
 export default config;
 
-function getAbsolutePath(value: string): any {
+function getAbsolutePath(value) {
   return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
 }
