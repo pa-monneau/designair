@@ -14,11 +14,13 @@
     "build-storybook": "node scripts/run-with-node24.mjs build-storybook:inner",
     "build-storybook:inner": "npm run build && storybook build && node scripts/verify-storybook-bundle.mjs",
     "test": "node scripts/run-with-node24.mjs test:inner",
-    "test:inner": "npm run build && npm run test:clear-cache && vitest run --project=storybook",
+    "test:inner": "npm run build && npm run test:clear-cache && vitest run",
+    "test:unit": "node scripts/run-with-node24.mjs test:unit:inner",
+    "test:unit:inner": "vitest run --project=unit",
     "test:watch": "node scripts/run-with-node24.mjs test:watch:inner",
-    "test:watch:inner": "npm run build && npm run test:clear-cache && vitest --project=storybook",
+    "test:watch:inner": "npm run build && npm run test:clear-cache && vitest",
     "test:coverage": "node scripts/run-with-node24.mjs test:coverage:inner",
-    "test:coverage:inner": "npm run build && npm run test:clear-cache && vitest run --project=storybook --coverage",
+    "test:coverage:inner": "npm run build && npm run test:clear-cache && vitest run --coverage",
     "test:clear-cache": "rm -rf node_modules/.cache/storybook/*/*/sb-vitest",
     "pack:dry-run": "npm pack --cache .npm-cache --workspaces --dry-run",
     "release:publish": "bash scripts/publish-packages.sh"
@@ -29,11 +31,15 @@
     "@storybook/addon-vitest": "^10.5.10",
     "@storybook/react-vite": "^10.5.4",
     "@tailwindcss/postcss": "^4.1.0",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitest/browser-playwright": "^4.1.11",
     "@vitest/coverage-v8": "^4.1.11",
+    "jsdom": "30.0.1",
     "playwright": "^1.62.1",
     "postcss": "^8.5.0",
     "react": "^19.0.0",
@@ -46,5 +52,13 @@
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "overrides": {
+    "esbuild": "0.28.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true,
+    "fsevents@2.3.2": true
   }
 }

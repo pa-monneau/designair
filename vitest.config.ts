@@ -12,6 +12,12 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+  resolve: {
+    // Les sources TypeScript priment sur d'anciens artefacts JavaScript
+    // ignorés par Git : les tests unitaires exercent toujours le code source
+    // réellement maintenu, jamais une sortie de build locale résiduelle.
+    extensions: ['.ts', '.tsx', '.mts', '.cts', '.js', '.jsx', '.mjs', '.cjs', '.json'],
+  },
   test: {
     // Le % de couverture rapporté ici reste actuellement à 0 malgré une
     // exécution réelle vérifiée manuellement (composants rendus, assertions
@@ -26,6 +32,15 @@ export default defineConfig({
       exclude: ['**/*.stories.tsx', '**/index.ts', '**/types.ts'],
     },
     projects: [
+      {
+        extends: true,
+        test: {
+          name: 'unit',
+          environment: 'jsdom',
+          include: ['tests/**/*.test.ts?(x)'],
+          setupFiles: ['tests/setup.ts'],
+        },
+      },
       {
         extends: true,
         plugins: [
