@@ -12,7 +12,10 @@ const CardHeader = ({
   className,
   ...rest
 }: CardHeaderProps) => (
-  <header
+  // <div> plutôt que <header> : un <header> hors d'un élément sectionnant
+  // (Card rend un <div> par défaut) devient un landmark banner implicite —
+  // plusieurs CardHeader sur une page produisaient des banners dupliqués.
+  <div
     className={classNames(
       "flex items-start px-6 py-5",
       layout === "stack" ? "flex-col gap-1" : "flex-row justify-between gap-4",

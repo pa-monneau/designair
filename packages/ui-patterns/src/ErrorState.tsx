@@ -21,7 +21,8 @@ type ErrorStateProps = {
 };
 
 const toneClasses: Record<ErrorStateTone, string> = {
-  brand: "text-brand-primary/30",
+  // /30 tombait à 1.59:1 sur bg-neutral-50 (seuil AA texte large : 3:1).
+  brand: "text-brand-primary/75",
   error: "text-error/30",
   warning: "text-warning/40",
 };

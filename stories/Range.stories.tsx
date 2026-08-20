@@ -33,6 +33,7 @@ const meta = {
     min: 0,
     max: 100,
     value: 40,
+    "aria-label": "Valeur",
   },
   parameters: {
     layout: "centered",

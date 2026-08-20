@@ -21,7 +21,9 @@ const PageHeader = ({
   metaLink,
   navigation,
 }: PageHeaderProps) => (
-  <header className="flex flex-col gap-4">
+  // <div> plutôt que <header> : cf. commentaire CardHeader (packages/ui-core),
+  // même risque de landmark banner dupliqué avec SiteHeader (le vrai banner).
+  <div className="flex flex-col gap-4">
     <div className="flex flex-col gap-2">
       {backLink ? (
         <a
@@ -49,7 +51,7 @@ const PageHeader = ({
       </div>
     </div>
     {navigation}
-  </header>
+  </div>
 );
 
 PageHeader.displayName = "PageHeader";

@@ -20,6 +20,8 @@ type MenuButtonProps = {
   showChevron?: boolean;
   /** Trigger carré sans padding horizontal (ex. avatar seul), comme `IconButton`. */
   iconOnly?: boolean;
+  /** Nom accessible du trigger. Requis quand `label` n'est pas un texte lisible (icône, avatar). */
+  "aria-label"?: string;
   className?: string;
   menuClassName?: string;
 };
@@ -46,6 +48,7 @@ const MenuButton = ({
   align = block ? "stretch" : "start",
   showChevron = true,
   iconOnly = false,
+  "aria-label": ariaLabel,
   className,
   menuClassName,
 }: MenuButtonProps) => {
@@ -94,6 +97,7 @@ const MenuButton = ({
         aria-controls={menuId}
         aria-expanded={open}
         aria-haspopup="menu"
+        aria-label={ariaLabel}
         onClick={() => setOpen((current) => !current)}
         className={buttonClassName({ variant, size, shape, block, iconOnly })}
       >

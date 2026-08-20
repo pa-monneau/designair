@@ -51,7 +51,7 @@ const Stepper = ({
             </span>
             <span className="hidden flex-col sm:flex">
               {step.eyebrow ? (
-                <span className="text-xs font-bold uppercase tracking-wide text-neutral-400">
+                <span className="text-xs font-bold uppercase tracking-wide text-neutral-500">
                   {step.eyebrow}
                 </span>
               ) : null}

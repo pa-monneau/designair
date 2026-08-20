@@ -23,7 +23,10 @@
   --color-success-bg: var(--recordair-color-success-bg, #ecfdf5);
   --color-success-border: var(--recordair-color-success-border, #a7f3d0);
   --color-success-text: var(--recordair-color-success-text, #065f46);
-  --color-error: var(--recordair-color-error, #ef4444);
+  /* #ef4444 (red-500) donnait un contraste de 3.76:1 avec le texte blanc des
+     boutons/badges "danger" (bg-error) : sous le seuil WCAG AA de 4.5:1.
+     #dc2626 (red-600) monte à 4.83:1. */
+  --color-error: var(--recordair-color-error, #dc2626);
   --color-error-bg: var(--recordair-color-error-bg, #fef2f2);
   --color-error-border: var(--recordair-color-error-border, #fecaca);
   --color-error-text: var(--recordair-color-error-text, #991b1b);

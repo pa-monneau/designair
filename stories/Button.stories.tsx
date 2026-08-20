@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, fn, userEvent, within } from "storybook/test";
 import { Button, ButtonGroup, IconButton, LinkButton, SubmitButton } from "@recordair/ui-core";
 import { ArrowRightIcon, HeartIcon, SaveIcon } from "@recordair/ui-core/icons";
 
@@ -89,7 +90,17 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const Primary: Story = {};
+const Primary: Story = {
+  args: {
+    onClick: fn(),
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button", { name: "Continuer" });
+    await userEvent.click(button);
+    await expect(args.onClick).toHaveBeenCalledOnce();
+  },
+};
 
 const Secondary: Story = {
   args: {
@@ -130,6 +141,14 @@ const WithIcons: Story = {
 const Loading: Story = {
   args: {
     loading: true,
+    onClick: fn(),
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button");
+    await expect(button).toBeDisabled();
+    await userEvent.click(button, { pointerEventsCheck: 0 });
+    await expect(args.onClick).not.toHaveBeenCalled();
   },
 };
 

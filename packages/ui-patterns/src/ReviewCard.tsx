@@ -17,7 +17,7 @@ type ReviewCardProps = {
 const ReviewCard = ({ review, ratingLabel }: ReviewCardProps) => {
   return (
     <Card as="article" variant="flat" padding="none" className="flex flex-col gap-3">
-      <span className="flex gap-1" aria-label={ratingLabel}>
+      <span className="flex gap-1" role="img" aria-label={ratingLabel}>
         {Array.from({ length: 5 }, (_, index) => (
           <StarIcon
             key={index}

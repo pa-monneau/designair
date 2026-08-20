@@ -114,6 +114,7 @@ const IconOnly: Story = {
     showChevron: false,
     iconOnly: true,
     label: <Avatar name="Alex Martin" size="sm" />,
+    "aria-label": "Menu du compte Alex Martin",
   },
 };
 

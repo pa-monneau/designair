@@ -6,6 +6,8 @@ type KeyValueProps = HTMLAttributes<HTMLDivElement> & {
   value: ReactNode;
 };
 
+// Rend une seule paire <dt>/<dd> : à composer, une ou plusieurs instances,
+// à l'intérieur d'un <dl> porté par l'appelant (cf. story DataDisplay/KeyValue).
 const KeyValue = ({ label, value, className, ...rest }: KeyValueProps) => (
   <div
     className={classNames(

@@ -54,7 +54,7 @@ const Overview: Story = {
 };
 
 const DetailCard: Story = {
-  render: () => <div className="w-96"><DetailCardComponent title="Détail"><KeyValue label="Total" value="160 €" /></DetailCardComponent></div>,
+  render: () => <div className="w-96"><DetailCardComponent title="Détail"><dl><KeyValue label="Total" value="160 €" /></dl></DetailCardComponent></div>,
 };
 
 const ErrorState: Story = {

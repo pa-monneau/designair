@@ -63,7 +63,7 @@ const LinkTabs: Story = {
 
 const ScrollAnchor: Story = {
   render: () => (
-    <div className="max-h-48 w-[var(--container-content-sm)] overflow-auto rounded-lg border border-neutral-200 bg-neutral-0 p-4">
+    <div tabIndex={0} className="max-h-48 w-[var(--container-content-sm)] overflow-auto rounded-lg border border-neutral-200 bg-neutral-0 p-4">
       <p className="min-h-64 text-body-sm text-neutral-600">Le point d’ancrage reste aligné sur le dernier contenu lorsque la propriété signal change.</p>
       <ScrollAnchorComponent signal="message-42" behavior="auto" />
     </div>

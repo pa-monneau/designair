@@ -10,7 +10,10 @@ const CardFooter = ({
   className,
   ...rest
 }: CardFooterProps) => (
-  <footer
+  // <div> plutôt que <footer> : même risque de landmark contentinfo
+  // dupliqué que CardHeader (cf. son commentaire) dès que 2 CardFooter
+  // coexistent hors élément sectionnant.
+  <div
     className={classNames(
       "flex items-center gap-3 px-6 py-4",
       divided && "border-t border-neutral-200",
