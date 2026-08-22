@@ -58,7 +58,7 @@ const NotificationCard = ({
       // branches ci-dessous restent mutuellement exclusives (jamais les deux
       // à la fois dans le DOM) pour ne jamais faire concurrencer deux
       // `!important` sur la même propriété.
-      "!flex-row items-start gap-3 transition",
+      "!flex-row items-center gap-3 transition",
       notification.read
         ? "!border-line !bg-surface-elevated"
         : "!border-brand-primary/40 !bg-brand-primary/[0.04]",
@@ -67,7 +67,7 @@ const NotificationCard = ({
     <button
       type="button"
       onClick={() => onOpen(notification.id)}
-      className="flex min-w-0 flex-1 cursor-pointer items-start gap-3 text-left"
+      className="flex min-w-0 flex-1 cursor-pointer items-center gap-3 text-left"
     >
       <IconBox tone="brand" pill icon={<Icon />} />
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">
@@ -78,7 +78,7 @@ const NotificationCard = ({
       </span>
       {!notification.read ? (
         <span
-          className="mt-1.5 size-2 shrink-0 rounded-full bg-brand-primary"
+          className="size-2 shrink-0 rounded-full bg-brand-primary"
           aria-label={unreadLabel}
         />
       ) : null}

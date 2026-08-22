@@ -11,6 +11,12 @@ type NotificationToastProps = {
   actions?: NotificationCardAction[];
   closeLabel: string;
   onClose: () => void;
+  /**
+   * Cliquer le corps (icône + texte) de l'encart — ex. rediriger vers la
+   * page liée à la notification. Omis : le corps n'est pas cliquable, seuls
+   * les boutons d'action et de fermeture le sont (comportement d'origine).
+   */
+  onOpen?: () => void;
 };
 
 /**
@@ -29,6 +35,7 @@ const NotificationToast = ({
   actions,
   closeLabel,
   onClose,
+  onOpen,
 }: NotificationToastProps) => {
   const [shown, setShown] = useState(false);
 
@@ -49,11 +56,27 @@ const NotificationToast = ({
           shown ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0",
         ].join(" ")}
       >
-        <IconBox tone="brand" pill icon={<Icon />} />
-        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-          <p className="text-sm font-semibold text-fg-primary">{title}</p>
-          {subtitle ? <p className="truncate text-xs text-fg-secondary">{subtitle}</p> : null}
-        </div>
+        {onOpen ? (
+          <button
+            type="button"
+            onClick={onOpen}
+            className="flex min-w-0 flex-1 cursor-pointer items-center gap-3 text-left"
+          >
+            <IconBox tone="brand" pill icon={<Icon />} />
+            <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+              <span className="text-sm font-semibold text-fg-primary">{title}</span>
+              {subtitle ? <span className="truncate text-xs text-fg-secondary">{subtitle}</span> : null}
+            </span>
+          </button>
+        ) : (
+          <>
+            <IconBox tone="brand" pill icon={<Icon />} />
+            <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+              <p className="text-sm font-semibold text-fg-primary">{title}</p>
+              {subtitle ? <p className="truncate text-xs text-fg-secondary">{subtitle}</p> : null}
+            </div>
+          </>
+        )}
         {actions && actions.length > 0 ? (
           <span className="flex shrink-0 items-center gap-1.5">
             {actions.map(({ icon: ActionIcon, label, tone, onClick }) => (
