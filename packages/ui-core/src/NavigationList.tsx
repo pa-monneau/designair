@@ -23,6 +23,12 @@ type NavigationListProps = {
   as?: ElementType;
   /** Rail icône seule (label masqué, tooltip natif via `title`) au lieu de icône + label. */
   collapsed?: boolean;
+  /**
+   * Transmis tel quel au composant `as` (ex. `prefetch` du `Link` Next.js).
+   * Utile pour désactiver le prefetch automatique sur une longue liste où
+   * chaque lien visible déclencherait sinon sa propre requête.
+   */
+  prefetch?: boolean;
   className?: string;
 };
 
@@ -45,6 +51,7 @@ const NavigationList = ({
   tone = "brand",
   as: LinkComponent = "a",
   collapsed = false,
+  prefetch,
   className,
 }: NavigationListProps) => (
   <nav aria-label={label} className={classNames("flex flex-col gap-1", className)}>
@@ -62,6 +69,7 @@ const NavigationList = ({
         <LinkComponent
           key={item.href}
           href={item.href}
+          prefetch={prefetch}
           aria-current={active ? "page" : undefined}
           title={collapsed && typeof item.label === "string" ? item.label : undefined}
           className={classNames(
