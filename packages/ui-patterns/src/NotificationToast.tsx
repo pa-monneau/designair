@@ -45,30 +45,30 @@ const NotificationToast = ({
     >
       <div
         className={[
-          "flex items-start gap-3 rounded-2xl border border-line bg-surface-elevated p-4 shadow-elevated transition-all duration-200 ease-out",
+          "flex items-center gap-3 rounded-2xl border border-line bg-surface-elevated p-4 shadow-elevated transition-all duration-200 ease-out",
           shown ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0",
         ].join(" ")}
       >
         <IconBox tone="brand" pill icon={<Icon />} />
-        <div className="flex min-w-0 flex-1 flex-col gap-1 pt-0.5">
+        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
           <p className="text-sm font-semibold text-fg-primary">{title}</p>
           {subtitle ? <p className="truncate text-xs text-fg-secondary">{subtitle}</p> : null}
-          {actions && actions.length > 0 ? (
-            <div className="flex items-center gap-1.5 pt-1">
-              {actions.map(({ icon: ActionIcon, label, tone, onClick }) => (
-                <IconButton
-                  key={label}
-                  onClick={onClick}
-                  label={label}
-                  icon={<ActionIcon />}
-                  variant={tone}
-                  size="sm"
-                  className="size-7"
-                />
-              ))}
-            </div>
-          ) : null}
         </div>
+        {actions && actions.length > 0 ? (
+          <span className="flex shrink-0 items-center gap-1.5">
+            {actions.map(({ icon: ActionIcon, label, tone, onClick }) => (
+              <IconButton
+                key={label}
+                onClick={onClick}
+                label={label}
+                icon={<ActionIcon />}
+                variant={tone}
+                size="sm"
+                className="size-7"
+              />
+            ))}
+          </span>
+        ) : null}
         <IconButton
           onClick={onClose}
           label={closeLabel}
