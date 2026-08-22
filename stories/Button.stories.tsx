@@ -11,6 +11,7 @@ const ButtonCatalog = () => (
       <Button variant="soft">Soft</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="danger">Danger</Button>
+      <Button variant="success">Succès</Button>
     </div>
     <div className="flex flex-wrap items-center gap-3">
       <Button variant="artist">Artiste</Button>
@@ -33,7 +34,7 @@ const ButtonCatalog = () => (
 
 /**
  * Bouton d'action principal. Variantes neutres (`primary`/`secondary`/
- * `ghost`/`soft`/`danger`) et variantes par rôle (`artist`/`studio`/`pro`,
+ * `ghost`/`soft`/`danger`/`success`) et variantes par rôle (`artist`/`studio`/`pro`,
  * dégradé + ombre tokenisés par rôle). Famille `Button` : `LinkButton` (lien
  * stylé bouton), `IconButton` (icône seule, page dédiée Core/IconButton),
  * `SubmitButton` (état `pending` de formulaire) et `ButtonGroup` (regroupement
@@ -45,9 +46,9 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      description: "Palette : neutres (`primary`/`secondary`/`ghost`/`soft`/`danger`) ou par rôle (`artist`/`studio`/`pro`).",
+      description: "Palette : neutres (`primary`/`secondary`/`ghost`/`soft`/`danger`/`success`) ou par rôle (`artist`/`studio`/`pro`).",
       control: "select",
-      options: ["primary", "secondary", "ghost", "soft", "danger", "artist", "studio", "pro"],
+      options: ["primary", "secondary", "ghost", "soft", "danger", "success", "artist", "studio", "pro"],
     },
     size: {
       description: "Hauteur et padding.",

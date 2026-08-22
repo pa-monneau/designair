@@ -9,6 +9,18 @@ type NotificationCardData = {
   read: boolean;
 };
 
+/**
+ * Action contextuelle (ex. accepter/refuser une demande d'ami). Générique et
+ * réutilisable pour tout futur type de notification actionnable (ex.
+ * invitation de salon) — pas de forme spécifique "ami" dans le composant.
+ */
+type NotificationCardAction = {
+  icon: ComponentType<IconProps>;
+  label: string;
+  tone: "success" | "danger";
+  onClick: () => void;
+};
+
 type NotificationCardProps = {
   notification: NotificationCardData;
   unreadLabel: string;
@@ -16,6 +28,13 @@ type NotificationCardProps = {
   Icon?: ComponentType<IconProps>;
   onOpen: (id: string) => void;
   onDelete: (id: string) => void;
+  /**
+   * Quand fournies, remplacent le bouton de suppression générique par ces
+   * actions (ex. Accepter/Refuser) : sur une notification actionnable,
+   * "supprimer la ligne" et "refuser la demande" seraient deux croix
+   * redondantes et ambiguës l'une à côté de l'autre.
+   */
+  actions?: NotificationCardAction[];
 };
 
 const NotificationCard = ({
@@ -25,6 +44,7 @@ const NotificationCard = ({
   Icon = BellIcon,
   onOpen,
   onDelete,
+  actions,
 }: NotificationCardProps) => (
   <Card
     as="article"
@@ -63,18 +83,34 @@ const NotificationCard = ({
         />
       ) : null}
     </button>
-    <IconButton
-      onClick={() => onDelete(notification.id)}
-      label={deleteLabel}
-      icon={<XIcon />}
-      variant="ghost"
-      size="sm"
-      className="size-7 shrink-0 text-fg-tertiary"
-    />
+    {actions && actions.length > 0 ? (
+      <span className="flex shrink-0 items-center gap-1.5">
+        {actions.map(({ icon: ActionIcon, label, tone, onClick }) => (
+          <IconButton
+            key={label}
+            onClick={onClick}
+            label={label}
+            icon={<ActionIcon />}
+            variant={tone}
+            size="sm"
+            className="size-7"
+          />
+        ))}
+      </span>
+    ) : (
+      <IconButton
+        onClick={() => onDelete(notification.id)}
+        label={deleteLabel}
+        icon={<XIcon />}
+        variant="ghost"
+        size="sm"
+        className="size-7 shrink-0 text-fg-tertiary"
+      />
+    )}
   </Card>
 );
 
 NotificationCard.displayName = "NotificationCard";
 
 export { NotificationCard };
-export type { NotificationCardData, NotificationCardProps };
+export type { NotificationCardAction, NotificationCardData, NotificationCardProps };

@@ -79,7 +79,7 @@ describe("public component coverage", () => {
 
     const uncoveredComponents = exportedComponents.filter((name) => !renderedComponents.has(name));
 
-    expect(exportedComponents).toHaveLength(78);
+    expect(exportedComponents).toHaveLength(79);
     expect(uncoveredComponents).toEqual([]);
   });
 });

@@ -19,7 +19,12 @@
   --color-neutral-800: var(--recordair-color-neutral-800, #27272a);
   --color-neutral-900: var(--recordair-color-neutral-900, #18181b);
 
-  --color-success: var(--recordair-color-success, #10b981);
+  /* #10b981 (emerald-500) donnait un contraste de 2.54:1 avec le texte blanc
+     du variant bouton "success" (bg-success) : sous le seuil WCAG AA de
+     4.5:1, repéré par le contrôle a11y Storybook en ajoutant ce variant.
+     #047857 (emerald-700) monte à 5.48:1. Même correctif que `--color-error`
+     ci-dessous, jusque-là seul token "solide + texte blanc" vérifié. */
+  --color-success: var(--recordair-color-success, #047857);
   --color-success-bg: var(--recordair-color-success-bg, #ecfdf5);
   --color-success-border: var(--recordair-color-success-border, #a7f3d0);
   --color-success-text: var(--recordair-color-success-text, #065f46);
@@ -190,7 +195,11 @@
     --recordair-color-selected-tint: rgb(129 140 248 / 18%);
     --recordair-color-selected-fg: #a5b4fc;
 
-    --recordair-color-success: #34d399;
+    /* Même palier qu'en clair (cf. commentaire plus haut) : #34d399
+       (emerald-400, choisi à l'origine pour "ressortir" sur fond sombre) ne
+       donne que 1.92:1 avec le texte blanc du bouton "success" — encore plus
+       loin du seuil AA que la valeur claire remplacée. */
+    --recordair-color-success: #047857;
     --recordair-color-success-bg: rgb(16 185 129 / 16%);
     --recordair-color-success-text: #6ee7b7;
     --recordair-color-error: #f87171;

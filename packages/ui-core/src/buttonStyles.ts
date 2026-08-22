@@ -8,6 +8,7 @@ type ButtonVariant =
   | "tinted"
   | "subtle"
   | "danger"
+  | "success"
   | "artist"
   | "studio"
   | "pro";
@@ -50,6 +51,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   tinted: "bg-line-subtle text-fg-primary hover:bg-line",
   subtle: "bg-transparent text-fg-secondary hover:bg-line-subtle hover:text-fg-primary",
   danger: "bg-error text-neutral-0 hover:brightness-95",
+  success: "bg-success text-neutral-0 hover:brightness-95",
   artist:
     "bg-gradient-to-r from-role-artist-from to-role-artist-to text-neutral-0 shadow-lg shadow-role-artist-to/30 hover:brightness-110",
   studio:
