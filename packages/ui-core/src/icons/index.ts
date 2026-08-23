@@ -70,6 +70,7 @@ export {
   TrendingUp as TrendingUpIcon,
   TriangleAlert as TriangleAlertIcon,
   User as UserIcon,
+  Users as UsersIcon,
   Volume2 as Volume2Icon,
   Wallet as WalletIcon,
   Wrench as WrenchIcon,

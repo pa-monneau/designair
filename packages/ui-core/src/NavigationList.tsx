@@ -8,6 +8,8 @@ type NavigationListItem = {
   label: ReactNode;
   badge?: ReactNode;
   leadingIcon?: ReactNode;
+  /** Icône plate en fin de ligne (ex. signal multijoueur), sans le fond coloré du `badge`. */
+  trailingIcon?: ReactNode;
   exact?: boolean;
 };
 
@@ -82,6 +84,9 @@ const NavigationList = ({
         >
           {item.leadingIcon ? <span aria-hidden className="shrink-0">{item.leadingIcon}</span> : null}
           {collapsed ? null : <span className="flex-1">{item.label}</span>}
+          {!collapsed && item.trailingIcon ? (
+            <span aria-hidden className="shrink-0">{item.trailingIcon}</span>
+          ) : null}
           {!collapsed && item.badge ? (
             <span className="grid min-w-[var(--size-nav-badge-min)] place-items-center rounded-full bg-error px-2 py-0.5 text-overline font-bold text-neutral-0">
               {item.badge}

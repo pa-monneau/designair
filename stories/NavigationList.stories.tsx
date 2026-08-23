@@ -1,11 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { NavigationList } from "@recordair/ui-core";
-import { CalendarDaysIcon, HouseIcon, SettingsIcon, UserIcon } from "@recordair/ui-core/icons";
+import { CalendarDaysIcon, HouseIcon, SettingsIcon, UserIcon, UsersIcon } from "@recordair/ui-core/icons";
 
 const items = [
   { href: "/dashboard", label: "Tableau de bord", leadingIcon: <HouseIcon className="size-5" />, exact: true },
   { href: "/dashboard/reservations", label: "Réservations", leadingIcon: <CalendarDaysIcon className="size-5" />, badge: 3 },
-  { href: "/dashboard/profile", label: "Profil", leadingIcon: <UserIcon className="size-5" /> },
+  {
+    href: "/dashboard/profile",
+    label: "Profil",
+    leadingIcon: <UserIcon className="size-5" />,
+    trailingIcon: <UsersIcon className="size-4 text-brand-primary" />,
+  },
   { href: "/dashboard/settings", label: "Paramètres", leadingIcon: <SettingsIcon className="size-5" /> },
 ];
 
@@ -23,7 +28,7 @@ const meta = {
   argTypes: {
     items: {
       description:
-        "Liens à afficher : `{ href, label, badge?, leadingIcon?, exact? }[]`. `exact` force un match strict (sinon les sous-routes de `href` sont aussi actives).",
+        "Liens à afficher : `{ href, label, badge?, leadingIcon?, trailingIcon?, exact? }[]`. `trailingIcon` est une icône plate en fin de ligne (pas de fond, contrairement à `badge`). `exact` force un match strict (sinon les sous-routes de `href` sont aussi actives).",
       control: false,
     },
     activeHref: {
