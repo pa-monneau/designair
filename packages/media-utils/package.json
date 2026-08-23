@@ -1,6 +1,6 @@
 {
   "name": "@recordair/media-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Pierre-Alexandre Monneau",
   "description": "Compression/réencodage d'image à l'upload (client navigateur + serveur), extrait de Record'air.",
   "repository": {

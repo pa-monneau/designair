@@ -1,6 +1,6 @@
 {
   "name": "designair",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "private": true,
   "description": "Lib UI React partagée entre les apps (Record'air, Home'air, Bi'air), publiée sous le scope npm historique @recordair.",
   "workspaces": [
