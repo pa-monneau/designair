@@ -16,7 +16,9 @@
     "paths": {
       "@recordair/ui-core": ["packages/ui-core/src/index.ts"],
       "@recordair/ui-core/*": ["packages/ui-core/src/*"],
-      "@recordair/ui-patterns": ["packages/ui-patterns/src/index.ts"]
+      "@recordair/ui-patterns": ["packages/ui-patterns/src/index.ts"],
+      "@recordair/media-utils/client": ["packages/media-utils/src/client.ts"],
+      "@recordair/media-utils/server": ["packages/media-utils/src/server.ts"]
     }
   },
   "include": ["packages/**/*.ts", "packages/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx", ".storybook/**/*.ts", "tests/**/*.ts", "tests/**/*.tsx", "vitest.shims.d.ts"]
