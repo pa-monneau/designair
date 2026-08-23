@@ -8,6 +8,7 @@
     "url": "https://github.com/pa-monneau/designair"
   },
   "type": "module",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
