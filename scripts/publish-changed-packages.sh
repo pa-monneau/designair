@@ -8,7 +8,7 @@ BASE_SHA="${1:?Usage: publish-changed-packages.sh <base-sha> <head-sha>}"
 HEAD_SHA="${2:?Usage: publish-changed-packages.sh <base-sha> <head-sha>}"
 DRY_RUN="${DRY_RUN:-0}"
 
-workspaces=("theme-recordair" "ui-core" "ui-patterns")
+workspaces=("theme-recordair" "ui-core" "ui-patterns" "media-utils")
 changed_files="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")"
 packages_to_publish=()
 
