@@ -22,6 +22,7 @@ export {
   Dices as DicesIcon,
   Drama as DramaIcon,
   Eye as EyeIcon,
+  EyeOff as EyeOffIcon,
   FileText as FileTextIcon,
   Gauge as GaugeIcon,
   Gift as GiftIcon,

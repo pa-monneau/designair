@@ -5,6 +5,7 @@ import {
   Field,
   Input,
   NativeSelect,
+  PasswordInput,
   Radio,
   SearchInput,
   Select,
@@ -84,6 +85,33 @@ const InputStory: Story = {
   },
 };
 
+const PasswordInputStory: Story = {
+  name: "PasswordInput",
+  render: () => (
+    <div className="w-96">
+      <PasswordInput
+        aria-label="Mot de passe"
+        placeholder="••••••••"
+        showLabel="Afficher le mot de passe"
+        hideLabel="Masquer le mot de passe"
+      />
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText("Mot de passe");
+    await userEvent.type(input, "s3cret!");
+    await expect(input).toHaveAttribute("type", "password");
+
+    await userEvent.click(canvas.getByRole("button", { name: "Afficher le mot de passe" }));
+    await expect(input).toHaveAttribute("type", "text");
+    await expect(input).toHaveValue("s3cret!");
+
+    await userEvent.click(canvas.getByRole("button", { name: "Masquer le mot de passe" }));
+    await expect(input).toHaveAttribute("type", "password");
+  },
+};
+
 const SearchInputStory: Story = {
   name: "SearchInput",
   render: () => <div className="w-96"><SearchInput aria-label="Rechercher un studio" placeholder="Studio, ville ou équipement" /></div>,
@@ -155,6 +183,7 @@ export {
   FieldStory,
   InputStory,
   NativeSelectStory,
+  PasswordInputStory,
   RadioStory,
   SearchInputStory,
   SelectStory,

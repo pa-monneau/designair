@@ -46,6 +46,8 @@ export { IconButton } from "./IconButton";
 export type { IconButtonProps } from "./IconButton";
 export { Input } from "./Input";
 export type { InputProps } from "./Input";
+export { PasswordInput } from "./PasswordInput";
+export type { PasswordInputProps } from "./PasswordInput";
 export { KeyValue } from "./KeyValue";
 export type { KeyValueProps } from "./KeyValue";
 export { LinkTabs } from "./LinkTabs";
