@@ -1,6 +1,6 @@
 {
   "name": "@recordair/ui-patterns",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "author": "Pierre-Alexandre Monneau",
   "description": "Patterns métier découplés issus de l'interface Record'air.",
   "repository": {
