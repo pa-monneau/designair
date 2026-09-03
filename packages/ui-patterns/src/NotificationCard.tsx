@@ -73,7 +73,7 @@ const NotificationCard = ({
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span className="text-sm font-semibold text-fg-primary">{notification.title}</span>
         {notification.subtitle ? (
-          <span className="truncate text-xs text-fg-secondary">{notification.subtitle}</span>
+          <span className="line-clamp-2 text-xs text-fg-secondary">{notification.subtitle}</span>
         ) : null}
       </span>
       {!notification.read ? (

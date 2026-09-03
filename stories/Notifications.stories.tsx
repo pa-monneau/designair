@@ -114,5 +114,43 @@ const ToastGeneric: Story = {
   ),
 };
 
+const LongSubtitle: Story = {
+  name: "Sous-titre long (repli sur deux lignes)",
+  render: () => (
+    // Le sous-titre se replie sur deux lignes avant d'être tronqué : un
+    // message porteur d'information (ex. un titre de palier gagné) reste
+    // lisible dans un toast étroit ou sur mobile, où une seule ligne le
+    // coupait au milieu.
+    <div className="grid gap-6 sm:grid-cols-2">
+      <div className="flex flex-col gap-2" data-theme="light">
+        <NotificationCard
+          notification={{
+            id: "1",
+            title: "Niveau supérieur !",
+            subtitle: "Niveau 25 atteint · Nouveau titre : « Légende des soirées »",
+            read: false,
+          }}
+          unreadLabel="Non lue"
+          deleteLabel="Supprimer"
+          onOpen={() => undefined}
+          onDelete={() => undefined}
+        />
+      </div>
+      <div
+        className="relative h-40 overflow-hidden rounded-xl bg-surface-page"
+        data-theme="dark"
+        style={{ contain: "layout" }}
+      >
+        <NotificationToast
+          title="Niveau supérieur !"
+          subtitle="Niveau 25 atteint · Nouveau titre : « Légende des soirées »"
+          closeLabel="Fermer"
+          onClose={() => undefined}
+        />
+      </div>
+    </div>
+  ),
+};
+
 export default meta;
-export { CardOverview, ToastGeneric, ToastOverview };
+export { CardOverview, LongSubtitle, ToastGeneric, ToastOverview };

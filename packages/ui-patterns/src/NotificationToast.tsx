@@ -65,7 +65,7 @@ const NotificationToast = ({
             <IconBox tone="brand" pill icon={<Icon />} />
             <span className="flex min-w-0 flex-1 flex-col gap-0.5">
               <span className="text-sm font-semibold text-fg-primary">{title}</span>
-              {subtitle ? <span className="truncate text-xs text-fg-secondary">{subtitle}</span> : null}
+              {subtitle ? <span className="line-clamp-2 text-xs text-fg-secondary">{subtitle}</span> : null}
             </span>
           </button>
         ) : (
@@ -73,7 +73,7 @@ const NotificationToast = ({
             <IconBox tone="brand" pill icon={<Icon />} />
             <div className="flex min-w-0 flex-1 flex-col gap-0.5">
               <p className="text-sm font-semibold text-fg-primary">{title}</p>
-              {subtitle ? <p className="truncate text-xs text-fg-secondary">{subtitle}</p> : null}
+              {subtitle ? <p className="line-clamp-2 text-xs text-fg-secondary">{subtitle}</p> : null}
             </div>
           </>
         )}
