@@ -32,7 +32,7 @@ beforeEach(() => {
 
       <section data-testid="visual-field" className="rounded-lg bg-surface-elevated p-6">
         <Field label="Adresse email" htmlFor="visual-email" error="Cette adresse email est invalide." required>
-          <Input id="visual-email" type="email" value="artiste@" readOnly invalid aria-describedby="visual-email-description" />
+          <Input id="visual-email" type="email" value="artiste@" readOnly invalid />
         </Field>
       </section>
 

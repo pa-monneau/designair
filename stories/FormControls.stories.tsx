@@ -71,8 +71,40 @@ const Catalog: Story = {
 const FieldStory: Story = {
   name: "Field",
   render: () => (
-    <div className="w-96"><Field label="Nom public" htmlFor="field-demo" hint="Visible sur ton profil."><Input id="field-demo" /></Field></div>
+    <div className="flex w-96 flex-col gap-6">
+      <Field label="Nom public" htmlFor="field-hint" hint="Visible sur ton profil.">
+        <Input id="field-hint" defaultValue="Studio République" />
+      </Field>
+      <Field label="Email" htmlFor="field-error" error="Adresse email invalide.">
+        <Input id="field-error" defaultValue="artiste@" />
+      </Field>
+    </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const withHint = canvas.getByLabelText("Nom public");
+    await expect(withHint).toHaveAttribute(
+      "aria-describedby",
+      "field-hint-description",
+    );
+    await expect(canvas.getByText("Visible sur ton profil.")).toHaveAttribute(
+      "id",
+      "field-hint-description",
+    );
+    await expect(withHint).not.toHaveAttribute("aria-invalid");
+
+    const withError = canvas.getByLabelText("Email");
+    await expect(withError).toHaveAttribute(
+      "aria-describedby",
+      "field-error-description",
+    );
+    await expect(withError).toHaveAttribute("aria-invalid", "true");
+    await expect(canvas.getByRole("alert")).toHaveAttribute(
+      "id",
+      "field-error-description",
+    );
+  },
 };
 
 const InputStory: Story = {
